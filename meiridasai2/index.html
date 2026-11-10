@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日大赛俄罗斯 - 赛事动态与选手解析</title>
+<meta name="description" content="每日大赛俄罗斯汇聚俄罗斯各城市每日大赛的赛程、选手、战报与规则解析，涵盖莫斯科、圣彼得堡、新西伯利亚等站，适合关注俄式竞技与每日赛果的观众查阅。">
+<meta name="keywords" content="俄式竞技赛程,每日赛果,莫斯科大赛,选手排名,赛事规则">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b2b4b'/%3E%3Cpath d='M8 22 L16 8 L24 22' stroke='%23e5b567' stroke-width='2.4' fill='none' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='22' r='2.6' fill='%23e5b567'/%3E%3C/svg%3E">
+<style>
+:root{
+  --c-bg:#f4f1ea;
+  --c-panel:#ffffff;
+  --c-ink:#1c2733;
+  --c-ink-soft:#4a5563;
+  --c-muted:#7b8794;
+  --c-line:#ddd6c8;
+  --c-line-soft:#ece7dc;
+  --c-primary:#1b2b4b;
+  --c-primary-soft:#2e4468;
+  --c-accent:#c8892b;
+  --c-accent-soft:#f3e3c6;
+  --c-red:#a63a2e;
+  --c-green:#3f6f4e;
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 1px 2px rgba(28,39,51,.06),0 4px 14px rgba(28,39,51,.06);
+  --shadow-strong:0 2px 6px rgba(28,39,51,.10),0 10px 30px rgba(28,39,51,.10);
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --header-h:64px;
+  --notice-h:40px;
+  --sticky-offset:calc(var(--notice-h) + var(--header-h));
+  --container:1360px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font);
+  background:var(--c-bg);
+  color:var(--c-ink);
+  line-height:1.7;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,h4{line-height:1.3;font-weight:700;}
+:focus-visible{outline:2px solid var(--c-accent);outline-offset:2px;}
+[id]{scroll-margin-top:calc(var(--sticky-offset) + 12px);}
+
+/* ============ 吸顶公告条 ============ */
+.notice-bar{
+  position:sticky;top:0;z-index:100;
+  height:var(--notice-h);
+  background:var(--c-primary);
+  color:#f3e9d6;
+  font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;
+  padding:0 16px;
+  overflow:hidden;
+}
+.notice-bar .tag{
+  background:var(--c-accent);
+  color:#2a1c05;
+  font-weight:700;
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:20px;
+  letter-spacing:.5px;
+  flex-shrink:0;
+}
+.notice-bar .notice-text{
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* ============ 吸顶页头 ============ */
+.site-header{
+  position:sticky;top:var(--notice-h);z-index:99;
+  height:var(--header-h);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--c-line);
+  box-shadow:0 1px 0 rgba(28,39,51,.04);
+}
+.header-inner{
+  max-width:var(--container);
+  margin:0 auto;
+  height:100%;
+  padding:0 20px;
+  display:flex;align-items:center;gap:22px;
+}
+.brand{
+  display:flex;align-items:center;gap:9px;flex-shrink:0;
+}
+.brand svg{width:32px;height:32px;display:block;}
+.brand-name{
+  font-size:19px;font-weight:800;letter-spacing:.5px;color:var(--c-primary);
+  white-space:nowrap;
+}
+.main-nav{
+  display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;
+  scrollbar-width:none;flex:1;
+}
+.main-nav::-webkit-scrollbar{display:none;}
+.main-nav a{
+  padding:6px 11px;border-radius:var(--radius-sm);
+  font-size:14px;color:var(--c-ink-soft);white-space:nowrap;
+  transition:background .15s,color .15s;
+}
+.main-nav a:hover{background:var(--c-accent-soft);color:var(--c-primary);}
+.header-actions{display:flex;gap:10px;align-items:center;flex-shrink:0;}
+.search-box{
+  display:flex;align-items:center;
+  background:var(--c-bg);
+  border:1px solid var(--c-line);
+  border-radius:20px;
+  padding:0 4px 0 12px;
+  height:34px;
+  transition:border-color .15s;
+}
+.search-box:focus-within{border-color:var(--c-accent);}
+.search-box input{
+  border:none;background:transparent;outline:none;
+  font-size:13px;width:130px;color:var(--c-ink);
+}
+.search-box input::placeholder{color:var(--c-muted);}
+.search-box button{
+  border:none;background:var(--c-primary);color:#fff;
+  border-radius:16px;height:26px;padding:0 12px;
+  font-size:12px;
+}
+.btn-outline{
+  border:1px solid var(--c-primary);
+  color:var(--c-primary);
+  background:transparent;
+  padding:6px 14px;border-radius:20px;font-size:13px;
+  white-space:nowrap;
+}
+.btn-outline:hover{background:var(--c-primary);color:#fff;}
+
+/* ============ 首屏 ============ */
+.hero{
+  background:linear-gradient(160deg,#1b2b4b 0%,#243a5e 55%,#2e4468 100%);
+  color:#f4f1ea;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 82% 22%,rgba(200,137,43,.26),transparent 42%),
+    radial-gradient(circle at 12% 88%,rgba(200,137,43,.12),transparent 38%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:var(--container);
+  margin:0 auto;padding:46px 20px 52px;
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:40px;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:2px;
+  color:var(--c-accent);
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+.hero-eyebrow::before{
+  content:"";width:26px;height:2px;background:var(--c-accent);display:inline-block;
+}
+.hero h1{
+  font-size:clamp(30px,4.2vw,50px);
+  font-weight:800;letter-spacing:1px;
+  margin-bottom:18px;
+  line-height:1.15;
+}
+.hero-desc{
+  font-size:15.5px;line-height:1.85;color:#d8d2c4;
+  max-width:560px;margin-bottom:26px;
+}
+.hero-desc strong{color:#f0d6a8;font-weight:600;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;}
+.btn-primary{
+  background:var(--c-accent);color:#221705;
+  font-weight:700;font-size:14px;
+  padding:11px 24px;border-radius:26px;border:none;
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(200,137,43,.35);}
+.btn-ghost{
+  border:1px solid rgba(244,241,234,.4);
+  color:#f4f1ea;background:transparent;
+  padding:11px 22px;border-radius:26px;font-size:14px;
+}
+.btn-ghost:hover{background:rgba(244,241,234,.1);}
+.hero-stats{
+  display:flex;gap:30px;flex-wrap:wrap;
+  border-top:1px solid rgba(244,241,234,.16);
+  padding-top:20px;
+}
+.hero-stats div{display:flex;flex-direction:column;gap:2px;}
+.hero-stats b{font-size:22px;color:var(--c-accent);font-weight:800;}
+.hero-stats span{font-size:12px;color:#b9b3a5;letter-spacing:.5px;}
+
+/* 首屏视觉：俄式竞技场示意 */
+.hero-visual{position:relative;display:flex;justify-content:center;}
+.arena{
+  width:100%;max-width:400px;
+  aspect-ratio:1/1.02;
+  position:relative;
+}
+.arena svg{width:100%;height:100%;display:block;}
+.arena-badge{
+  position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(200,137,43,.5);
+  backdrop-filter:blur(6px);
+  border-radius:30px;
+  padding:7px 20px;
+  font-size:12px;letter-spacing:2px;color:#e5d8bd;
+  white-space:nowrap;
+}
+
+/* ============ 主体三栏 ============ */
+.page-shell{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:30px 20px 10px;
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr) 260px;
+  gap:26px;
+  align-items:start;
+}
+
+/* 左频道索引 */
+.channel-rail{
+  position:sticky;top:calc(var(--sticky-offset) + 16px);
+  background:var(--c-panel);
+  border:1px solid var(--c-line);
+  border-radius:var(--radius);
+  padding:16px 12px;
+  box-shadow:var(--shadow);
+}
+.channel-rail h2{
+  font-size:12px;letter-spacing:2px;color:var(--c-muted);
+  font-weight:600;margin-bottom:12px;padding-left:6px;
+}
+.channel-rail nav a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 8px;border-radius:var(--radius-sm);
+  font-size:13.5px;color:var(--c-ink-soft);
+  transition:background .15s,color .15s;
+}
+.channel-rail nav a:hover{background:var(--c-accent-soft);color:var(--c-primary);font-weight:600;}
+.channel-rail nav a .cnt{
+  font-size:11px;color:var(--c-muted);
+  background:var(--c-bg);border-radius:10px;padding:1px 7px;
+}
+.rail-divider{height:1px;background:var(--c-line-soft);margin:14px 4px;}
+
+/* 主内容 */
+.main-col{min-width:0;}
+.sec{
+  background:var(--c-panel);
+  border:1px solid var(--c-line);
+  border-radius:var(--radius);
+  padding:24px 26px;
+  margin-bottom:24px;
+  box-shadow:var(--shadow);
+}
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:14px;margin-bottom:18px;flex-wrap:wrap;
+}
+.sec-head h2{
+  font-size:20px;color:var(--c-primary);
+  display:flex;align-items:center;gap:10px;
+}
+.sec-head h2::before{
+  content:"";width:5px;height:20px;border-radius:3px;
+  background:var(--c-accent);display:inline-block;
+}
+.sec-sub{font-size:12.5px;color:var(--c-muted);}
+.overview-text{
+  font-size:14.5px;line-height:1.95;color:var(--c-ink-soft);
+}
+.overview-text p{margin-bottom:12px;}
+.overview-text strong{color:var(--c-primary);}
+.overview-text .kw{color:var(--c-accent);font-weight:700;}
+
+/* 精选卡片网格 */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.match-card{
+  border:1px solid var(--c-line-soft);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#fdfcf9;
+  display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s;
+}
+.match-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-strong);}
+.match-card .cover{
+  aspect-ratio:4/3;overflow:hidden;position:relative;
+}
+.match-card .cover img{width:100%;height:100%;object-fit:cover;}
+.match-card .cover .city{
+  position:absolute;top:8px;left:8px;
+  background:rgba(27,43,75,.86);
+  color:#f0d6a8;font-size:10.5px;
+  padding:2px 8px;border-radius:10px;letter-spacing:.5px;
+}
+.match-card .body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.match-card h3{font-size:14.5px;color:var(--c-primary);line-height:1.35;}
+.match-card .type-tag{
+  font-size:11px;color:var(--c-accent);
+  background:var(--c-accent-soft);
+  padding:1px 8px;border-radius:8px;align-self:flex-start;
+}
+.match-card .tags{display:flex;flex-wrap:wrap;gap:5px;}
+.match-card .tags span{
+  font-size:10.5px;color:var(--c-muted);
+  border:1px solid var(--c-line);border-radius:8px;padding:1px 7px;
+}
+.match-card .desc{font-size:12.5px;line-height:1.6;color:var(--c-ink-soft);flex:1;}
+.match-card .meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:var(--c-muted);padding-top:4px;
+  border-top:1px dashed var(--c-line-soft);
+}
+.match-card .meta .heat{color:var(--c-red);font-weight:600;}
+
+/* 动态列表 */
+.news-list{display:flex;flex-direction:column;gap:2px;}
+.news-item{
+  display:grid;grid-template-columns:64px 1fr auto;
+  gap:14px;align-items:center;
+  padding:11px 6px;border-bottom:1px solid var(--c-line-soft);
+}
+.news-item:last-child{border-bottom:none;}
+.news-item time{
+  font-size:11.5px;color:var(--c-muted);
+  font-variant-numeric:tabular-nums;
+}
+.news-item .n-title{font-size:14px;font-weight:600;color:var(--c-ink);}
+.news-item .n-title em{font-style:normal;color:var(--c-accent);}
+.news-item .n-desc{font-size:12.5px;color:var(--c-muted);}
+.news-item .badge{
+  font-size:10.5px;padding:2px 9px;border-radius:10px;
+  background:var(--c-accent-soft);color:var(--c-accent);white-space:nowrap;
+}
+.news-item .badge.live{background:#e9f0e9;color:var(--c-green);}
+.news-item .badge.hot{background:#f7e5e2;color:var(--c-red);}
+
+/* 分类入口 */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
+}
+.cat-item{
+  border:1px solid var(--c-line-soft);
+  border-radius:var(--radius);
+  padding:14px 14px 15px;
+  background:linear-gradient(180deg,#fdfcf9,#f7f4ed);
+  transition:border-color .15s,transform .15s;
+}
+.cat-item:hover{border-color:var(--c-accent);transform:translateY(-2px);}
+.cat-item .cat-name{font-size:14.5px;font-weight:700;color:var(--c-primary);margin-bottom:4px;}
+.cat-item .cat-desc{font-size:11.5px;color:var(--c-muted);line-height:1.55;}
+
+/* 深度解析 */
+.deep h3{
+  font-size:16px;color:var(--c-primary);
+  margin:22px 0 10px;padding-left:11px;
+  border-left:3px solid var(--c-accent);
+}
+.deep h3:first-of-type{margin-top:4px;}
+.deep p{font-size:14px;line-height:1.9;color:var(--c-ink-soft);margin-bottom:11px;}
+.deep ul{margin:8px 0 14px 6px;display:flex;flex-direction:column;gap:7px;}
+.deep ul li{
+  font-size:13.5px;color:var(--c-ink-soft);line-height:1.75;
+  padding-left:18px;position:relative;
+}
+.deep ul li::before{
+  content:"";position:absolute;left:2px;top:9px;
+  width:6px;height:6px;border-radius:50%;background:var(--c-accent);
+}
+.deep .compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0;
+}
+.deep .compare > div{
+  border:1px solid var(--c-line-soft);border-radius:var(--radius-sm);
+  padding:12px 14px;background:#faf8f3;
+}
+.deep .compare b{display:block;font-size:13px;color:var(--c-primary);margin-bottom:5px;}
+.deep .compare span{font-size:12.5px;color:var(--c-ink-soft);line-height:1.7;}
+
+/* 体验指南：编号步骤 */
+.steps{display:flex;flex-direction:column;gap:12px;counter-reset:step;}
+.step{
+  display:flex;gap:14px;
+  padding:14px 16px;
+  border-radius:var(--radius);
+  background:#faf8f3;
+  border:1px solid var(--c-line-soft);
+}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  font-size:20px;font-weight:800;color:var(--c-accent);
+  line-height:1;flex-shrink:0;width:34px;
+}
+.step .s-body b{display:block;font-size:14px;color:var(--c-primary);margin-bottom:3px;}
+.step .s-body span{font-size:12.8px;color:var(--c-ink-soft);line-height:1.7;}
+
+/* FAQ */
+.faq details{
+  border:1px solid var(--c-line-soft);
+  border-radius:var(--radius-sm);
+  margin-bottom:9px;
+  background:#fdfcf9;
+  overflow:hidden;
+}
+.faq details[open]{border-color:var(--c-accent);}
+.faq summary{
+  padding:13px 16px;font-size:14px;font-weight:600;color:var(--c-primary);
+  cursor:pointer;list-style:none;position:relative;padding-right:38px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{
+  content:"+";position:absolute;right:16px;top:50%;
+  transform:translateY(-50%);font-size:18px;color:var(--c-accent);font-weight:400;
+}
+.faq details[open] summary::after{content:"–";}
+.faq .faq-a{
+  padding:0 16px 14px;font-size:13.2px;line-height:1.8;color:var(--c-ink-soft);
+}
+
+/* 评论 */
+.comment-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+}
+.comment{
+  border:1px solid var(--c-line-soft);border-radius:var(--radius-sm);
+  padding:13px 15px;background:#fdfcf9;
+}
+.comment .c-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.comment .avatar{
+  width:26px;height:26px;border-radius:50%;
+  background:var(--c-accent-soft);color:var(--c-accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;flex-shrink:0;
+}
+.comment .c-name{font-size:12.5px;font-weight:600;color:var(--c-primary);}
+.comment .c-time{font-size:10.5px;color:var(--c-muted);margin-left:auto;}
+.comment .c-text{font-size:12.8px;line-height:1.7;color:var(--c-ink-soft);}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+.news-card{
+  border:1px solid var(--c-line-soft);border-radius:var(--radius);
+  overflow:hidden;background:#fdfcf9;
+  display:flex;flex-direction:column;
+}
+.news-card img{width:100%;aspect-ratio:3/2;object-fit:cover;}
+.news-card .nc-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:5px;}
+.news-card h3{font-size:14px;color:var(--c-primary);line-height:1.4;}
+.news-card .nc-date{font-size:11px;color:var(--c-muted);}
+.news-card p{font-size:12.5px;line-height:1.65;color:var(--c-ink-soft);}
+
+/* 相关推荐 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px;}
+.rec-tags a{
+  font-size:13px;padding:6px 14px;
+  border:1px solid var(--c-line);border-radius:20px;
+  color:var(--c-ink-soft);background:#faf8f3;
+  transition:all .15s;
+}
+.rec-tags a:hover{border-color:var(--c-accent);color:var(--c-accent);background:var(--c-accent-soft);}
+
+/* 榜单 */
+.rank-list{display:flex;flex-direction:column;gap:0;}
+.rank-item{
+  display:grid;grid-template-columns:32px 1fr auto;
+  gap:12px;align-items:center;
+  padding:10px 4px;border-bottom:1px solid var(--c-line-soft);
+}
+.rank-item:last-child{border-bottom:none;}
+.rank-item .rk{
+  font-size:15px;font-weight:800;color:var(--c-muted);
+  font-variant-numeric:tabular-nums;text-align:center;
+}
+.rank-item:nth-child(1) .rk{color:var(--c-accent);}
+.rank-item:nth-child(2) .rk{color:#9aa4b0;}
+.rank-item:nth-child(3) .rk{color:#b98a5c;}
+.rank-item .rk-name{font-size:13.5px;font-weight:600;color:var(--c-ink);}
+.rank-item .rk-sub{font-size:11.5px;color:var(--c-muted);}
+.rank-item .rk-val{font-size:12px;color:var(--c-red);font-weight:700;}
+
+/* ============ 右辅助栏 ============ */
+.side-col{display:flex;flex-direction:column;gap:20px;}
+.side-card{
+  background:var(--c-panel);
+  border:1px solid var(--c-line);
+  border-radius:var(--radius);
+  padding:18px 16px;
+  box-shadow:var(--shadow);
+}
+.side-card h2{
+  font-size:14px;color:var(--c-primary);
+  margin-bottom:13px;padding-bottom:9px;
+  border-bottom:1px solid var(--c-line-soft);
+  display:flex;align-items:center;gap:7px;
+}
+.side-card h2::before{
+  content:"";width:4px;height:14px;background:var(--c-accent);border-radius:2px;
+}
+.side-list{display:flex;flex-direction:column;gap:11px;}
+.side-list a{
+  display:flex;gap:9px;align-items:flex-start;
+  font-size:12.8px;line-height:1.55;color:var(--c-ink-soft);
+}
+.side-list a:hover{color:var(--c-accent);}
+.side-list .num{
+  font-size:11px;font-weight:700;color:var(--c-accent);
+  background:var(--c-accent-soft);border-radius:4px;
+  width:18px;height:18px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.side-card .upd-item{
+  display:flex;justify-content:space-between;gap:8px;
+  padding:8px 0;border-bottom:1px dashed var(--c-line-soft);
+  font-size:12.5px;
+}
+.side-card .upd-item:last-child{border-bottom:none;}
+.side-card .upd-item .u-name{color:var(--c-ink-soft);}
+.side-card .upd-item .u-date{color:var(--c-muted);font-size:11px;white-space:nowrap;}
+.side-card .u-live{color:var(--c-green);font-weight:600;}
+
+/* ============ 页尾 ============ */
+.site-footer{
+  background:var(--c-primary);color:#cfc9bb;
+  margin-top:30px;padding:44px 20px 26px;
+  font-size:13px;
+}
+.footer-inner{max-width:var(--container);margin:0 auto;}
+.footer-top{
+  display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:34px;
+  padding-bottom:30px;border-bottom:1px solid rgba(244,241,234,.14);
+}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.footer-brand svg{width:30px;height:30px;}
+.footer-brand b{color:#f0d6a8;font-size:17px;letter-spacing:.5px;}
+.footer-about{font-size:12.5px;line-height:1.8;color:#a9a396;max-width:320px;}
+.footer-col h3{font-size:13px;color:#e5d8bd;margin-bottom:12px;letter-spacing:1px;}
+.footer-col a{
+  display:block;font-size:12.5px;color:#a9a396;
+  padding:4px 0;transition:color .15s;
+}
+.footer-col a:hover{color:#f0d6a8;}
+.footer-bottom{
+  padding-top:20px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:11.5px;color:#8c887e;
+}
+.footer-bottom .disclaimer{max-width:640px;line-height:1.7;}
+.footer-bottom .copy{white-space:nowrap;}
+
+/* ============ 响应式 ============ */
+@media (max-width:1200px){
+  .page-shell{grid-template-columns:170px minmax(0,1fr) 240px;gap:20px;}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:1024px){
+  .page-shell{grid-template-columns:minmax(0,1fr) 260px;}
+  .channel-rail{
+    grid-column:1/-1;position:static;
+    display:flex;align-items:center;gap:8px;
+    padding:10px 12px;overflow-x:auto;
+  }
+  .channel-rail h2{margin-bottom:0;flex-shrink:0;}
+  .channel-rail nav{display:flex;gap:2px;overflow-x:auto;}
+  .channel-rail nav a{white-space:nowrap;padding:6px 10px;}
+  .rail-divider{display:none;}
+  .hero-inner{grid-template-columns:1fr;gap:26px;padding:36px 20px 42px;}
+  .hero-visual{max-width:340px;margin:0 auto;}
+}
+@media (max-width:860px){
+  .header-inner{padding:0 14px;gap:12px;}
+  .main-nav{display:none;}
+  .search-box input{width:96px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:24px;}
+}
+@media (max-width:740px){
+  :root{--header-h:58px;--notice-h:36px;}
+  .page-shell{grid-template-columns:1fr;padding:18px 14px 6px;gap:18px;}
+  .side-col{order:3;}
+  .sec{padding:18px 16px;}
+  .card-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .comment-grid,.news-grid{grid-template-columns:1fr;}
+  .deep .compare{grid-template-columns:1fr;}
+  .news-item{grid-template-columns:1fr auto;gap:4px 10px;}
+  .news-item time{grid-column:1/-1;font-size:11px;}
+  .hero-stats{gap:18px;}
+  .hero h1{font-size:30px;}
+  .footer-top{grid-template-columns:1fr;gap:22px;}
+  .footer-bottom{flex-direction:column;}
+  .search-box{display:none;}
+  .brand-name{font-size:17px;}
+  .hero-visual{max-width:260px;}
+}
+@media (max-width:400px){
+  .cat-grid{grid-template-columns:1fr;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ============ 吸顶公告条 ============ -->
+<div class="notice-bar" role="status" aria-label="站内公告">
+  <span class="tag">最新</span>
+  <span class="notice-text">11 月 8 日莫斯科冬季赛第 12 轮结果已出｜圣彼得堡新秀组本周新增 9 名选手档案｜新西伯利亚站赛程调整</span>
+</div>
+
+<!-- ============ 吸顶页头 ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#top" class="brand" aria-label="每日大赛俄罗斯首页">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#1b2b4b"/>
+        <path d="M7 23 L16 7 L25 23" stroke="#e5b567" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+        <circle cx="16" cy="23" r="2.6" fill="#e5b567"/>
+        <path d="M11 18 L16 18 L21 18" stroke="#e5b567" stroke-width="1.2" opacity=".55"/>
+      </svg>
+      <span class="brand-name">每日大赛俄罗斯</span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="/#overview">赛事概览</a>
+      <a href="/#featured">精选赛程</a>
+      <a href="/#updates">最新赛况</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">观赛指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">选手评议</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#rank">实力榜</a>
+    </nav>
+    <div class="header-actions">
+      <form class="search-box" role="search" id="siteSearch" onsubmit="return false;">
+        <input type="search" id="searchInput" placeholder="搜选手 / 赛事 / 城市" aria-label="站内搜索">
+        <button type="button" id="searchBtn">查找</button>
+      </form>
+      <a href="/#featured" class="btn-outline">今日赛程</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 首屏 ============ -->
+<main id="top">
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">R U S S I A &nbsp; D A I L Y &nbsp; L E A G U E</span>
+      <h1 id="heroTitle">每日大赛俄罗斯</h1>
+      <p class="hero-desc">
+        汇集莫斯科、圣彼得堡、新西伯利亚等城市的<strong>每日大赛</strong>赛程与赛果，
+        覆盖力量举、速降攀爬、器械技巧与综合体能四大项。
+        可查看当日对阵、选手积分走势、裁判评分规则与场地条件说明，
+        适合追踪俄式竞技节奏、判断选手状态的观众与参赛者。
+      </p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn-primary">查看今日对阵</a>
+        <a href="/#rank" class="btn-ghost">积分实力榜</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>38</b><span>今日场次</span></div>
+        <div><b>214</b><span>在册选手</span></div>
+        <div><b>7</b><span>城市赛区</span></div>
+        <div><b>4</b><span>竞赛大项</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="arena">
+        <svg viewBox="0 0 400 408" role="img" aria-label="俄式竞技场馆与积分环示意">
+          <defs>
+            <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#243a5e"/>
+              <stop offset="1" stop-color="#18253f"/>
+            </linearGradient>
+            <linearGradient id="hgold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e5b567"/>
+              <stop offset="1" stop-color="#b8822e"/>
+            </linearGradient>
+          </defs>
+          <rect x="12" y="12" width="376" height="384" rx="20" fill="url(#hbg)" stroke="#3a5178" stroke-width="1.4"/>
+          <!-- 环形积分 -->
+          <circle cx="200" cy="168" r="104" fill="none" stroke="#33486e" stroke-width="14"/>
+          <circle cx="200" cy="168" r="104" fill="none" stroke="url(#hgold)" stroke-width="14"
+                  stroke-dasharray="380 273" stroke-linecap="round" transform="rotate(-88 200 168)"/>
+          <circle cx="200" cy="168" r="72" fill="none" stroke="#2a3d60" stroke-width="1.4" stroke-dasharray="3 7"/>
+          <text x="200" y="152" text-anchor="middle" fill="#e5b567" font-size="34" font-weight="800" font-family="sans-serif">7</text>
+          <text x="200" y="178" text-anchor="middle" fill="#9fb0c9" font-size="13" letter-spacing="2" font-family="sans-serif">赛区</text>
+          <text x="200" y="200" text-anchor="middle" fill="#7f91ad" font-size="11" letter-spacing="1.5" font-family="sans-serif">REGIONS</text>
+          <!-- 竞技台 -->
+          <rect x="84" y="300" width="232" height="12" rx="6" fill="#2a3d60"/>
+          <path d="M120 300 L140 268 L260 268 L280 300" fill="none" stroke="#3a5178" stroke-width="2"/>
+          <rect x="150" y="256" width="100" height="12" rx="4" fill="url(#hgold)" opacity=".9"/>
+          <circle cx="200" cy="240" r="13" fill="#e5b567"/>
+          <path d="M200 227 L200 205 M188 238 L160 248 M212 238 L240 248" stroke="#e5b567" stroke-width="3" stroke-linecap="round"/>
+          <!-- 城市点 -->
+          <g fill="#e5b567">
+            <circle cx="92" cy="92" r="4"/>
+            <circle cx="310" cy="110" r="4"/>
+            <circle cx="330" cy="240" r="4"/>
+            <circle cx="76" cy="210" r="4"/>
+          </g>
+          <g stroke="#4a648f" stroke-width="1" opacity=".7">
+            <line x1="92" y1="92" x2="200" y2="168"/>
+            <line x1="310" y1="110" x2="200" y2="168"/>
+            <line x1="330" y1="240" x2="200" y2="168"/>
+            <line x1="76" y1="210" x2="200" y2="168"/>
+          </g>
+        </svg>
+      </div>
+      <span class="arena-badge">MOSCOW · 11 / 08</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 三栏主体 ============ -->
+<div class="page-shell">
+
+  <!-- 左：频道索引 -->
+  <aside class="channel-rail" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <nav>
+      <a href="/#overview">赛事概览 <span class="cnt">01</span></a>
+      <a href="/#featured">精选赛程 <span class="cnt">06</span></a>
+      <a href="/#updates">最新赛况 <span class="cnt">10</span></a>
+      <a href="/#categories">分类入口 <span class="cnt">08</span></a>
+      <a href="/#deep">深度解析 <span class="cnt">03</span></a>
+      <a href="/#guide">观赛指南 <span class="cnt">04</span></a>
+      <a href="/#faq">常见问题 <span class="cnt">06</span></a>
+      <a href="/#comments">选手评议 <span class="cnt">14</span></a>
+      <a href="/#news">相关资讯 <span class="cnt">06</span></a>
+      <a href="/#rec">相关推荐 <span class="cnt">07</span></a>
+      <a href="/#rank">实力榜 <span class="cnt">08</span></a>
+    </nav>
+    <div class="rail-divider"></div>
+    <nav aria-label="热门城市">
+      <a href="/#featured">莫斯科站 <span class="cnt">12</span></a>
+      <a href="/#featured">圣彼得堡站 <span class="cnt">09</span></a>
+      <a href="/#featured">新西伯利亚站 <span class="cnt">07</span></a>
+      <a href="/#featured">喀山站 <span class="cnt">05</span></a>
+    </nav>
+  </aside>
+
+  <!-- 中：主内容 -->
+  <div class="main-col">
+
+    <!-- 1. 赛事概览 -->
+    <section class="sec" id="overview" aria-labelledby="overviewTitle">
+      <div class="sec-head">
+        <h2 id="overviewTitle">赛事概览：俄式每日竞技的四个方向</h2>
+        <span class="sec-sub">2026 年 11 月 8 日更新</span>
+      </div>
+      <div class="overview-text">
+        <p>
+          <strong>每日大赛俄罗斯</strong>是以日为单位的综合竞技赛事体系，核心特征是“当日报名、当日对决、当日结算积分”。
+          与季度制联赛不同，它的参赛名单会随城市与日期变化，因此关注每日大赛的观众需要按城市、按项目分别追踪。
+          目前活跃的四个方向是：<strong>力量举三项</strong>（深蹲、卧推、硬拉）、<strong>速降攀爬</strong>（垂直赛道计时）、
+          <strong>器械技巧</strong>（壶铃、单杠、吊环组合动作）与<strong>综合体能</strong>（负重折返、雪橇推、划船机接力）。
+        </p>
+        <p>
+          莫斯科站是目前场次最密集的赛区，冬季赛每天安排 8 至 12 场，场地集中在科洛缅斯科耶运动中心与伊兹麦洛沃体育馆。
+          圣彼得堡站偏向新秀组，规则里对 25 岁以下参赛者有单独的积分系数，因此同一名选手在新秀组与公开组的排名会明显不同。
+          新西伯利亚站与喀山站则以速降攀爬和器械技巧见长，前者垂直赛道高度差达到 42 米，后者以壶铃长循环著称。
+        </p>
+        <p>
+          对于刚接触的观众，判断一场每日大赛是否值得跟进，通常看三个信号：
+          参赛名单里是否有当前积分前 20 的选手、项目是否属于该选手的强项、以及场地条件是否接近纪录触发值。
+          这三个信号在下方赛程卡片与实力榜中会以标签形式直接给出，方便快速筛选。
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="sec" id="featured" aria-labelledby="featuredTitle">
+      <div class="sec-head">
+        <h2 id="featuredTitle">精选赛程：今日值得跟进的六场对阵</h2>
+        <span class="sec-sub">按开赛时间排序</span>
+      </div>
+      <div class="card-grid">
+
+        <article class="match-card">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/moscow-power-01/400/300" alt="莫斯科冬季赛力量举三项场地" width="400" height="300" loading="lazy">
+            <span class="city">莫斯科</span>
+          </div>
+          <div class="body">
+            <span class="type-tag">力量举三项</span>
+            <h3>莫斯科冬季赛第 12 轮·公开组</h3>
+            <div class="tags"><span>深蹲</span><span>硬拉</span><span>积分赛</span></div>
+            <p class="desc">阿列克谢·莫罗佐夫与伊戈尔·列别杰夫在硬拉环节直接对位，两人本赛季最好成绩相差 5 公斤。</p>
+            <div class="meta"><span>19:30 开赛</span><span class="heat">热度 96</span></div>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/spb-rookie-02/400/300" alt="圣彼得堡新秀组速降攀爬赛道" width="400" height="300" loading="lazy">
+            <span class="city">圣彼得堡</span>
+          </div>
+          <div class="body">
+            <span class="type-tag">速降攀爬</span>
+            <h3>圣彼得堡新秀组·垂直竞速</h3>
+            <div class="tags"><span>25 岁以下</span><span>计时赛</span><span>纪录冲击</span></div>
+            <p class="desc">叶卡捷琳娜·索科洛娃上月刚刷新赛道青年纪录，本轮若低于 1 分 52 秒将进入年度前十。</p>
+            <div class="meta"><span>18:00 开赛</span><span class="heat">热度 89</span></div>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/novos-kettlebell-03/400/300" alt="新西伯利亚站壶铃长循环器械技巧赛" width="400" height="300" loading="lazy">
+            <span class="city">新西伯利亚</span>
+          </div>
+          <div class="body">
+            <span class="type-tag">器械技巧</span>
+            <h3>新西伯利亚站·壶铃长循环 24 公斤</h3>
+            <div class="tags"><span>壶铃</span><span>耐力</span><span>动作标准</span></div>
+            <p class="desc">24 公斤级长循环是本站传统强项，本轮有 3 名选手尝试突破 100 次总次数，裁判组加派两名动作判定员。</p>
+            <div class="meta"><span>20:10 开赛</span><span class="heat">热度 84</span></div>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/kazan-conditioning-04/400/300" alt="喀山站综合体能雪橇推赛道" width="400" height="300" loading="lazy">
+            <span class="city">喀山</span>
+          </div>
+          <div class="body">
+            <span class="type-tag">综合体能</span>
+            <h3>喀山站·雪橇推与划船机接力</h3>
+            <div class="tags"><span>雪橇推</span><span>接力</span><span>团队赛</span></div>
+            <p class="desc">四人一队的接力赛，雪橇总负重 180 公斤，换项区设置在室外连廊，低温条件对热身节奏提出要求。</p>
+            <div class="meta"><span>17:00 开赛</span><span class="heat">热度 78</span></div>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/moscow-pullup-05/400/300" alt="莫斯科站单杠技巧挑战赛" width="400" height="300" loading="lazy">
+            <span class="city">莫斯科</span>
+          </div>
+          <div class="body">
+            <span class="type-tag">器械技巧</span>
+            <h3>莫斯科站·单杠技巧挑战赛</h3>
+            <div class="tags"><span>单杠</span><span>动作编排</span><span>裁判评分</span></div>
+            <p class="desc">评分由难度分与完成分构成，德米特里·沃尔科夫准备了一套含三个 C 组动作的连贯编排，完成度是看点。</p>
+            <div class="meta"><span>21:00 开赛</span><span class="heat">热度 81</span></div>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/spb-deadlift-06/400/300" alt="圣彼得堡公开组硬拉单项赛" width="400" height="300" loading="lazy">
+            <span class="city">圣彼得堡</span>
+          </div>
+          <div class="body">
+            <span class="type-tag">力量举三项</span>
+            <h3>圣彼得堡公开组·硬拉单项赛</h3>
+            <div class="tags"><span>硬拉</span><span>单项</span><span>体重系数</span></div>
+            <p class="desc">单项赛按体重系数折算排名，轻量级选手在系数上占优，本轮 82 公斤级与 94 公斤级的争夺最接近。</p>
+            <div class="meta"><span>19:00 开赛</span><span class="heat">热度 75</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section class="sec" id="updates" aria-labelledby="updatesTitle">
+      <div class="sec-head">
+        <h2 id="updatesTitle">最新赛况：今日与近三日的赛果与变动</h2>
+        <span class="sec-sub">2026-11-08 09:40</span>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <time>今天 09:40</time>
+          <div><div class="n-title">莫斯科冬季赛第 12 轮签表公布</div><div class="n-desc">公开组 12 人、新秀组 8 人，硬拉环节被安排在第三项。</div></div>
+          <span class="badge hot">已出签</span>
+        </div>
+        <div class="news-item">
+          <time>今天 08:55</time>
+          <div><div class="n-title">圣彼得堡新秀组新增 9 名选手档案</div><div class="n-desc">含两名 2026 年青年赛奖牌得主，积分从零起算。</div></div>
+          <span class="badge">档案</span>
+        </div>
+        <div class="news-item">
+          <time>昨天 21:10</time>
+          <div><div class="n-title">新西伯利亚站壶铃长循环 24 公斤级成绩</div><div class="n-desc">冠军总次数 108 次，第二名 102 次，动作判罚无争议。</div></div>
+          <span class="badge live">赛果</span>
+        </div>
+        <div class="news-item">
+          <time>昨天 19:30</time>
+          <div><div class="n-title">叶卡捷琳娜·索科洛娃跑出 1 分 53 秒 4</div><div class="n-desc">距个人青年纪录差 0.8 秒，赛道中段抓点湿滑。</div></div>
+          <span class="badge">计时</span>
+        </div>
+        <div class="news-item">
+          <time>11 月 6 日</time>
+          <div><div class="n-title">喀山站接力赛换项区规则微调</div><div class="n-desc">雪橇推至划船机的交接区延长 2 米，避免通道拥堵。</div></div>
+          <span class="badge">规则</span>
+        </div>
+        <div class="news-item">
+          <time>11 月 5 日</time>
+          <div><div class="n-title">莫斯科站单杠技巧赛裁判名单确认</div><div class="n-desc">三名裁判中两人具备国际组执裁经历，完成分权重不变。</div></div>
+          <span class="badge">裁判</span>
+        </div>
+        <div class="news-item">
+          <time>11 月 4 日</time>
+          <div><div class="n-title">圣彼得堡公开组硬拉单项赛报名截止</div><div class="n-desc">共 22 人报名，按体重分为 5 个系数组别。</div></div>
+          <span class="badge">报名</span>
+        </div>
+        <div class="news-item">
+          <time>11 月 3 日</time>
+          <div><div class="n-title">伊戈尔·列别杰夫硬拉训练成绩 305 公斤</div><div class="n-desc">训练视频由俱乐部发布，是否计入正式成绩待确认。</div></div>
+          <span class="badge hot">选手</span>
+        </div>
+        <div class="news-item">
+          <time>11 月 2 日</time>
+          <div><div class="n-title">莫斯科冬季赛第 11 轮积分榜</div><div class="n-desc">阿列克谢·莫罗佐夫以 486 分继续领跑公开组。</div></div>
+          <span class="badge live">积分</span>
+        </div>
+        <div class="news-item">
+          <time>11 月 1 日</time>
+          <div><div class="n-title">新西伯利亚站垂直赛道维护完成</div><div class="n-desc">第 3 至第 5 抓点更换摩擦片，计时基准重新标定。</div></div>
+          <span class="badge">场地</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="sec" id="categories" aria-labelledby="categoriesTitle">
+      <div class="sec-head">
+        <h2 id="categoriesTitle">分类入口：按项目与城市查找每日大赛</h2>
+        <span class="sec-sub">8 个常用分类</span>
+      </div>
+      <div class="cat-grid">
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">力量举三项</div>
+          <div class="cat-desc">深蹲、卧推、硬拉当日总成绩结算，莫斯科与圣彼得堡场次最多。</div>
+        </a>
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">速降攀爬</div>
+          <div class="cat-desc">垂直赛道计时，新西伯利亚站高度差 42 米，青年组设有独立纪录。</div>
+        </a>
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">器械技巧</div>
+          <div class="cat-desc">壶铃长循环、单杠编排、吊环组合，评分含难度分与完成分。</div>
+        </a>
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">综合体能</div>
+          <div class="cat-desc">负重折返、雪橇推与划船机接力，多为四人团队赛。</div>
+        </a>
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">莫斯科赛区</div>
+          <div class="cat-desc">科洛缅斯科耶与伊兹麦洛沃两个场地，冬季赛每日 8 至 12 场。</div>
+        </a>
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">圣彼得堡赛区</div>
+          <div class="cat-desc">新秀组与公开组并行，25 岁以下选手积分系数单独计算。</div>
+        </a>
+        <a href="/#featured" class="cat-item">
+          <div class="cat-name">新西伯利亚赛区</div>
+          <div class="cat-desc">速降攀爬与壶铃长循环传统强项，场地维护记录公开。</div>
+        </a>
+        <a href="/#rank" class="cat-item">
+          <div class="cat-name">积分与排名</div>
+          <div class="cat-desc">按单项、城市与体重系数分列的当期积分榜与纪录表。</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="sec deep" id="deep" aria-labelledby="deepTitle">
+      <div class="sec-head">
+        <h2 id="deepTitle">深度解析：四个项目的评分逻辑与对位看点</h2>
+        <span class="sec-sub">阅读约 4 分钟</span>
+      </div>
+
+      <h3>力量举三项：总成绩与体重系数怎么取舍</h3>
+      <p>
+        力量举三项在每日大赛里采用“三项总成绩优先、体重系数辅助排名”的规则。
+        若两名选手总成绩相同，先看硬拉单项重量，再看体重系数。
+        这意味着轻量级选手在平局时更占优势，但前提是总成绩必须追平。
+        阿列克谢·莫罗佐夫属于典型的大重量路线，深蹲 285 公斤、硬拉 300 公斤，靠绝对重量拉开差距；
+        伊戈尔·列别杰夫则以卧推见长，三项更均衡，平局场景下系数更有利。
+      </p>
+      <div class="compare">
+        <div><b>绝对重量路线</b><span>深蹲与硬拉拉开差距，适合体重较大的选手，平局时系数吃亏。</span></div>
+        <div><b>均衡系数路线</b><span>三项无明显短板，靠卧推和完成率取胜，平局时系数占优。</span></div>
+      </div>
+
+      <h3>速降攀爬：计时赛的抓点与节奏</h3>
+      <p>
+        速降攀爬不是单纯的攀爬速度，赛道分三段：起步直壁、中段横移、末段冲刺。
+        中段横移的抓点摩擦片状态直接决定成绩，赛道维护后计时基准会重新标定，
+        因此同一名选手在不同维护周期内的成绩不能直接比较。
+        叶卡捷琳娜·索科洛娃的优势在末段冲刺，中段湿滑时她会主动降速换取抓握稳定性，这是她成绩波动的主要来源。
+      </p>
+      <ul>
+        <li><b>起步直壁</b>：前 15 米决定进入节奏，抢跑会被加罚 1 秒。</li>
+        <li><b>中段横移</b>：抓点摩擦系数是变量，维护记录需同步查看。</li>
+        <li><b>末段冲刺</b>：最后 8 米允许双脚蹬墙，动作不标准会加罚。</li>
+      </ul>
+
+      <h3>器械技巧：难度分与完成分的权重</h3>
+      <p>
+        器械技巧的评分由难度分（D 分）与完成分（E 分）相加。
+        单杠挑战赛中，难度分按动作组别累计，C 组动作计 0.4 分；
+        完成分满分 10 分，落地移动、屈臂、停顿都会扣分。
+        德米特里·沃尔科夫的编排含三个 C 组动作，理论难度分 1.2，但完成分对稳定性要求更高，
+        一旦末段动作出现停顿，扣分可能抵消难度优势。
+      </p>
+      <p>
+        壶铃长循环则是另一套逻辑：只看总次数与动作判罚，没有编排分。
+        24 公斤级长循环中，动作被判无效的次数不计入总数，
+        因此选手更倾向于放慢节奏保证每一次都有效，而不是追求速度。
+      </p>
+
+      <h3>综合体能：团队接力的换项成本</h3>
+      <p>
+        综合体能多为四人接力，换项区的位置决定节奏。
+        喀山站把换项区设在室外连廊，低温下肌肉冷却更快，
+        队伍通常会让耐力型选手承担雪橇推、爆发型选手承担划船机。
+        换项区延长 2 米后，交接时的停顿时间被压缩，
+        团队配合的容错率反而下降，这是本轮规则微调的直接影响。
+      </p>
+    </section>
+
+    <!-- 6. 观赛指南 -->
+    <section class="sec" id="guide" aria-labelledby="guideTitle">
+      <div class="sec-head">
+        <h2 id="guideTitle">观赛指南：按什么顺序看、怎么判断一场值不值得跟</h2>
+        <span class="sec-sub">4 个判断步骤</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="s-body">
+            <b>先看项目，再看城市</b>
+            <span>四个项目的节奏差异很大：力量举三项单场约 2.5 小时，速降攀爬单轮不到 2 分钟。先锁定你关心项目，再按城市筛选当天的场次。</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="s-body">
+            <b>用积分榜确认选手档位</b>
+            <span>公开组前 20 名与 20 名之后的选手同场，比赛质量差异明显。实力榜里标注的积分与近五场战绩，比单场成绩更能说明状态。</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="s-body">
+            <b>看场地条件是否接近纪录触发值</b>
+            <span>速降攀爬看抓点维护记录，力量举看杠铃片配置与裁判尺度，器械技巧看动作判定员人数。条件接近极限值时，纪录冲击的概率更高。</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="s-body">
+            <b>同类条目横向比较</b>
+            <span>同为硬拉单项赛，体重系数组别不同，成绩不可直接比较。先确认组别，再看同组内前三名的差距，差距小于 5 公斤通常意味着末轮有反超空间。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="sec faq" id="faq" aria-labelledby="faqTitle">
+      <div class="sec-head">
+        <h2 id="faqTitle">常见问题：选手、规则与观赛</h2>
+        <span class="sec-sub">6 个真实搜索问题</span>
+      </div>
+
+      <details>
+        <summary>每日大赛俄罗斯的场次一般多久更新一次？</summary>
+        <div class="faq-a">莫斯科与圣彼得堡赛区基本每个比赛日更新一次签表，通常在开赛前 6 至 8 小时公布。新西伯利亚与喀山站按周排期，一周两到三个比赛日。积分榜在每轮结束后次日更新。</div>
+      </details>
+
+      <details>
+        <summary>力量举三项和硬拉单项赛的排名规则有什么区别？</summary>
+        <div class="faq-a">三项赛按总成绩排名，平局时先比硬拉单项重量，再比体重系数。硬拉单项赛直接按体重系数折算排名，不累计深蹲与卧推，因此轻量级选手在单项赛中更占优势。</div>
+      </details>
+
+      <details>
+        <summary>第一次看速降攀爬，从哪个站开始比较好？</summary>
+        <div class="faq-a">建议从圣彼得堡新秀组看起。新秀组赛道高度较低、抓点维护记录完整，解说也偏向规则说明，理解成本低。熟悉节奏后再看新西伯利亚站的 42 米赛道，差异会更直观。</div>
+      </details>
+
+      <details>
+        <summary>壶铃长循环 24 公斤级和 32 公斤级的评判标准一样吗？</summary>
+        <div class="faq-a">动作判罚标准一致，都要求上举到位、手臂锁定、下放不过膝。区别在有效次数的阈值与完赛时间限制，32 公斤级对动作稳定性要求更高，无效次数扣减更严格。</div>
+      </details>
+
+      <details>
+        <summary>选手的积分是怎么累计的，不同城市能互相比较吗？</summary>
+        <div class="faq-a">积分按完赛名次与项目权重累计，同一赛区内可以直接比较。跨赛区比较时要注意新秀组的积分系数不同，圣彼得堡新秀组的积分不能直接与莫斯科公开组并列。</div>
+      </details>
+
+      <details>
+        <summary>综合体能接力赛的换项区位置会影响成绩吗？</summary>
+        <div class="faq-a">会。换项区在室外时，低温会让肌肉冷却更快，交接停顿的代价更大。喀山站本轮把换项区延长 2 米，减少了拥堵但也压缩了缓冲时间，团队需要调整交接节奏。</div>
+      </details>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="sec" id="comments" aria-labelledby="commentsTitle">
+      <div class="sec-head">
+        <h2 id="commentsTitle">选手评议：关于具体场次与选手的讨论</h2>
+        <span class="sec-sub">14 条</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment">
+          <div class="c-head"><span class="avatar">北</span><span class="c-name">北纬五十五</span><span class="c-time">今天 10:12</span></div>
+          <div class="c-text">莫罗佐夫这轮硬拉如果开把 295，后面还有两次试举空间，节奏比上一轮稳。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">涅</span><span class="c-name">涅瓦河畔</span><span class="c-time">今天 09:48</span></div>
+          <div class="c-text">索科洛娃中段降速是对的，湿滑抓点硬冲反而容易失误，1 分 53 秒 4 已经不错了。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">壶</span><span class="c-name">壶铃老张</span><span class="c-time">今天 09:20</span></div>
+          <div class="c-text">24 公斤长循环 108 次，动作判罚干净，这个总次数在新西伯利亚站能排进前三。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">西</span><span class="c-name">西伯利亚松</span><span class="c-time">昨天 22:05</span></div>
+          <div class="c-text">赛道换摩擦片之后成绩基准确实变了，拿维护前的成绩对比没意义，得看新标定后的数据。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">单</span><span class="c-name">单杠不落地</span><span class="c-time">昨天 21:30</span></div>
+          <div class="c-text">沃尔科夫那套编排难度分够，但末段停顿是隐患，完成分扣起来很快。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">喀</span><span class="c-name">喀山推雪橇</span><span class="c-time">昨天 20:14</span></div>
+          <div class="c-text">换项区延长 2 米，我们队交接反而慢了，缓冲距离不够，第一棒要提前减速。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">体</span><span class="c-name">体重系数党</span><span class="c-time">昨天 19:02</span></div>
+          <div class="c-text">82 公斤级和 94 公斤级硬拉单项赛同场折算，轻量级确实占优，但总重量差太多也追不上。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">莫</span><span class="c-name">莫斯科夜场</span><span class="c-time">11 月 7 日</span></div>
+          <div class="c-text">第 12 轮签表比上一轮均衡，前四号种子分在不同半区，决赛前不会提前相遇。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">新</span><span class="c-name">新秀观察员</span><span class="c-time">11 月 7 日</span></div>
+          <div class="c-text">新增的 9 名新秀里有两个青年赛奖牌得主，积分从零起算，前几轮对手强度不会太高。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">三</span><span class="c-name">三项均衡派</span><span class="c-time">11 月 6 日</span></div>
+          <div class="c-text">列别杰夫卧推强，三项均衡，平局时系数占优，我觉得他比莫罗佐夫更适合积分赛制。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">计</span><span class="c-name">计时器成精</span><span class="c-time">11 月 6 日</span></div>
+          <div class="c-text">速降攀爬抢跑加罚 1 秒这个规则，新秀组里好几个人栽过，起步节奏要练。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">裁</span><span class="c-name">裁判尺度控</span><span class="c-time">11 月 5 日</span></div>
+          <div class="c-text">单杠赛三名裁判里两人有国际组经历，完成分尺度应该会比较统一，落地移动扣分不会太严。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">冬</span><span class="c-name">冬季赛常客</span><span class="c-time">11 月 4 日</span></div>
+          <div class="c-text">莫斯科冬季赛每天 8 到 12 场，一天全看完不现实，挑两场重点项目跟就够了。</div>
+        </div>
+        <div class="comment">
+          <div class="c-head"><span class="avatar">记</span><span class="c-name">纪录追踪者</span><span class="c-time">11 月 3 日</span></div>
+          <div class="c-text">训练成绩 305 公斤不算正式纪录，得看正式赛场上裁判判定的成绩，先别急着下结论。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="sec" id="news" aria-labelledby="newsTitle">
+      <div class="sec-head">
+        <h2 id="newsTitle">相关资讯：赛事与规则的具体变动</h2>
+        <span class="sec-sub">6 条</span>
+      </div>
+      <div class="news-grid">
+        <article class="news-card">
+          <img src="https://picsum.photos/seed/moscow-winter-news1/600/400" alt="莫斯科冬季赛签表与场地" width="600" height="400" loading="lazy">
+          <div class="nc-body">
+            <span class="nc-date">2026-11-08</span>
+            <h3>莫斯科冬季赛第 12 轮签表与硬拉顺序确认</h3>
+            <p>公开组 12 人签表公布，硬拉被安排在第三项，前四号种子分处不同半区。</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://picsum.photos/seed/spb-rookie-news2/600/400" alt="圣彼得堡新秀组选手档案" width="600" height="400" loading="lazy">
+          <div class="nc-body">
+            <span class="nc-date">2026-11-08</span>
+            <h3>圣彼得堡新秀组档案新增 9 人，含两名青年赛奖牌得主</h3>
+            <p>新秀组积分系数独立计算，两名奖牌得主从零起算，首轮对手强度较低。</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://picsum.photos/seed/novos-kettlebell-news3/600/400" alt="新西伯利亚壶铃长循环比赛现场" width="600" height="400" loading="lazy">
+          <div class="nc-body">
+            <span class="nc-date">2026-11-07</span>
+            <h3>壶铃长循环 24 公斤级冠军 108 次，判罚无争议</h3>
+            <p>第二名 102 次，前三名有效次数差距在 6 次以内，动作判定员共三人。</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://picsum.photos/seed/spb-climb-news4/600/400" alt="圣彼得堡速降攀爬赛道计时" width="600" height="400" loading="lazy">
+          <div class="nc-body">
+            <span class="nc-date">2026-11-07</span>
+            <h3>索科洛娃跑出 1 分 53 秒 4，距青年纪录 0.8 秒</h3>
+            <p>中段横移抓点湿滑，末段冲刺正常，成绩计入新秀组当轮排名。</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://picsum.photos/seed/kazan-relay-news5/600/400" alt="喀山站综合体能接力换项区" width="600" height="400" loading="lazy">
+          <div class="nc-body">
+            <span class="nc-date">2026-11-06</span>
+            <h3>喀山站接力换项区延长 2 米，交接规则同步调整</h3>
+            <p>雪橇推至划船机的交接区扩大，减少拥堵但压缩了团队缓冲时间。</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="https://picsum.photos/seed/novos-track-news6/600/400" alt="新西伯利亚垂直赛道维护" width="600" height="400" loading="lazy">
+          <div class="nc-body">
+            <span class="nc-date">2026-11-01</span>
+            <h3>新西伯利亚垂直赛道完成维护，计时基准重新标定</h3>
+            <p>第 3 至第 5 抓点更换摩擦片，此前成绩不可与维护后直接比较。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="sec" id="rec" aria-labelledby="recTitle">
+      <div class="sec-head">
+        <h2 id="recTitle">相关推荐：延伸方向与具体条目</h2>
+        <span class="sec-sub">7 个方向</span>
+      </div>
+      <div class="rec-tags">
+        <a href="/#featured">莫斯科硬拉单项对位</a>
+        <a href="/#deep">新秀组积分系数说明</a>
+        <a href="/#featured">新西伯利亚 42 米赛道</a>
+        <a href="/#deep">单杠难度分 C 组动作</a>
+        <a href="/#rank">体重系数折算表</a>
+        <a href="/#updates">换项区规则微调</a>
+        <a href="/#guide">速降攀爬抓点维护记录</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：实力榜 -->
+    <section class="sec" id="rank" aria-labelledby="rankTitle">
+      <div class="sec-head">
+        <h2 id="rankTitle">实力榜：公开组当期积分前八</h2>
+        <span class="sec-sub">截至 2026-11-08</span>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rk">1</span><div><div class="rk-name">阿列克谢·莫罗佐夫</div><div class="rk-sub">莫斯科 · 力量举三项 · 近五场 4 胜</div></div><span class="rk-val">486 分</span></div>
+        <div class="rank-item"><span class="rk">2</span><div><div class="rk-name">伊戈尔·列别杰夫</div><div class="rk-sub">莫斯科 · 力量举三项 · 近五场 3 胜</div></div><span class="rk-val">472 分</span></div>
+        <div class="rank-item"><span class="rk">3</span><div><div class="rk-name">叶卡捷琳娜·索科洛娃</div><div class="rk-sub">圣彼得堡 · 速降攀爬 · 新秀组纪录保持者</div></div><span class="rk-val">451 分</span></div>
+        <div class="rank-item"><span class="rk">4</span><div><div class="rk-name">德米特里·沃尔科夫</div><div class="rk-sub">莫斯科 · 器械技巧 · 单杠编排见长</div></div><span class="rk-val">438 分</span></div>
+        <div class="rank-item"><span class="rk">5</span><div><div class="rk-name">安娜·库兹涅佐娃</div><div class="rk-sub">新西伯利亚 · 壶铃长循环 · 24 公斤级</div></div><span class="rk-val">426 分</span></div>
+        <div class="rank-item"><span class="rk">6</span><div><div class="rk-name">谢尔盖·伊万诺夫</div><div class="rk-sub">喀山 · 综合体能 · 接力队队长</div></div><span class="rk-val">412 分</span></div>
+        <div class="rank-item"><span class="rk">7</span><div><div class="rk-name">玛丽亚·彼得罗娃</div><div class="rk-sub">圣彼得堡 · 速降攀爬 · 公开组</div></div><span class="rk-val">398 分</span></div>
+        <div class="rank-item"><span class="rk">8</span><div><div class="rk-name">帕维尔·斯米尔诺夫</div><div class="rk-sub">新西伯利亚 · 器械技巧 · 吊环组合</div></div><span class="rk-val">385 分</span></div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 右：辅助栏 -->
+  <aside class="side-col" aria-label="辅助信息">
+
+    <div class="side-card">
+      <h2>今日更新流</h2>
+      <div class="upd-item"><span class="u-name">莫斯科第 12 轮签表</span><span class="u-date">09:40</span></div>
+      <div class="upd-item"><span class="u-name">圣彼得堡新秀档案</span><span class="u-date">08:55</span></div>
+      <div class="upd-item"><span class="u-name">新西伯利亚 24 公斤成绩</span><span class="u-date">昨天 21:10</span></div>
+      <div class="upd-item"><span class="u-name">索科洛娃计时</span><span class="u-date">昨天 19:30</span></div>
+      <div class="upd-item"><span class="u-name">喀山换项区规则</span><span class="u-date">11 月 6 日</span></div>
+      <div class="upd-item"><span class="u-name">单杠裁判名单</span><span class="u-date">11 月 5 日</span></div>
+      <div class="upd-item"><span class="u-name">硬拉单项报名截止</span><span class="u-date">11 月 4 日</span></div>
+    </div>
+
+    <div class="side-card">
+      <h2>热门城市</h2>
+      <div class="side-list">
+        <a href="/#featured"><span class="num">1</span>莫斯科 · 冬季赛第 12 轮硬拉对位</a>
+        <a href="/#featured"><span class="num">2</span>圣彼得堡 · 新秀组垂直竞速纪录冲击</a>
+        <a href="/#featured"><span class="num">3</span>新西伯利亚 · 壶铃长循环 24 公斤</a>
+        <a href="/#featured"><span class="num">4</span>喀山 · 雪橇推接力换项区调整</a>
+        <a href="/#rank"><span class="num">5</span>公开组积分前八实时变动</a>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h2>纪录与阈值</h2>
+      <div class="upd-item"><span class="u-name">速降攀爬青年纪录</span><span class="u-date u-live">1:52.6</span></div>
+      <div class="upd-item"><span class="u-name">壶铃 24 公斤单场</span><span class="u-date u-live">108 次</span></div>
+      <div class="upd-item"><span class="u-name">硬拉单项 94 公斤级</span><span class="u-date">302 公斤</span></div>
+      <div class="upd-item"><span class="u-name">单杠难度分上限</span><span class="u-date">1.6</span></div>
+      <div class="upd-item"><span class="u-name">雪橇总负重</span><span class="u-date">180 公斤</span></div>
+    </div>
+
+  </aside>
+
+</div>
+</main>
+
+<!-- ============ 页尾 ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="#2e4468"/>
+            <path d="M7 23 L16 7 L25 23" stroke="#e5b567" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
+            <circle cx="16" cy="23" r="2.6" fill="#e5b567"/>
+          </svg>
+          <b>每日大赛俄罗斯</b>
+        </div>
+        <p class="footer-about">
+          追踪莫斯科、圣彼得堡、新西伯利亚、喀山等赛区的每日大赛赛程、赛果、选手积分与规则解析，
+          覆盖力量举三项、速降攀爬、器械技巧与综合体能四个方向。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>赛事栏目</h3>
+        <a href="/#overview">赛事概览</a>
+        <a href="/#featured">精选赛程</a>
+        <a href="/#updates">最新赛况</a>
+        <a href="/#categories">分类入口</a>
+        <a href="/#rank">实力榜</a>
+      </div>
+      <div class="footer-col">
+        <h3>项目分类</h3>
+        <a href="/#featured">力量举三项</a>
+        <a href="/#featured">速降攀爬</a>
+        <a href="/#featured">器械技巧</a>
+        <a href="/#featured">综合体能</a>
+        <a href="/#deep">评分规则解析</a>
+      </div>
+      <div class="footer-col">
+        <h3>城市赛区</h3>
+        <a href="/#featured">莫斯科站</a>
+        <a href="/#featured">圣彼得堡站</a>
+        <a href="/#featured">新西伯利亚站</a>
+        <a href="/#featured">喀山站</a>
+        <a href="/#faq">常见问题</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">部分内容为示例数据，仅用于展示页面结构。赛程、选手与积分均为垂类示例条目，不构成真实赛事信息。</p>
+      <p class="copy">© 2026 每日大赛俄罗斯 · 内容聚合示例</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 本地内容查找：按关键词高亮并滚动到第一个匹配的板块 */
+  var input = document.getElementById('searchInput');
+  var btn = document.getElementById('searchBtn');
+
+  function clearMarks(){
+    document.querySelectorAll('mark[data-search]').forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+  }
+
+  function escapeReg(s){
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function runSearch(){
+    var q = (input.value || '').trim();
+    clearMarks();
+    if(!q){ return; }
+
+    var targets = document.querySelectorAll('.main-col .sec h2, .main-col .sec h3, .main-col .match-card h3, .main-col .news-item .n-title, .main-col .comment .c-text, .main-col .cat-item .cat-name');
+    var re = new RegExp(escapeReg(q), 'i');
+    var first = null;
+
+    targets.forEach(function(el){
+      if(re.test(el.textContent) && !el.querySelector('mark[data-search]')){
+        if(!first){ first = el; }
+        var html = el.innerHTML;
+        el.innerHTML = html.replace(new RegExp('(' + escapeReg(q) + ')', 'gi'), '<mark data-search style="background:#f3e3c6;color:#1b2b4b;border-radius:2px;padding:0 1px;">$1</mark>');
+      }
+    });
+
+    if(first){
+      first.scrollIntoView({behavior:'smooth', block:'center'});
+    }else{
+      var sec = document.getElementById('featured');
+      if(sec){
+        var msg = document.createElement('div');
+        msg.textContent = '未找到与「' + q + '」相关的内容，请尝试选手姓名、城市或项目名。';
+        msg.style.cssText = 'position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#1b2b4b;color:#f3e9d6;padding:10px 20px;border-radius:24px;font-size:13px;z-index:200;box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:86vw;text-align:center;';
+        document.body.appendChild(msg);
+        setTimeout(function(){ msg.remove(); }, 2600);
+        sec.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    }
+  }
+
+  btn.addEventListener('click', runSearch);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+  });
+})();
+</script>
+</body>
+        </html>
