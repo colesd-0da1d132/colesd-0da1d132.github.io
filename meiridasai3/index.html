@@ -1,0 +1,1642 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日大赛黑料入口 - 赛事档案与争议动态</title>
+  <meta name="description" content="每日大赛黑料入口，汇聚电竞赛事争议判罚、选手违规记录、赛果复核档案与社区讨论。2026年11月最新更新，适合关注比赛公平性与幕后动态的观众查阅。">
+  <meta name="keywords" content="电竞赛事争议, 比赛判罚档案, 选手违规记录, 赛果复核, 赛事黑料">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1e2b'/%3E%3Cpath d='M8 20l4-10 4 6 4-8 4 12' stroke='%23e8b34b' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    /* ---------- 重置与变量 ---------- */
+    *,
+    *::before,
+    *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-body: #f4f5f8;
+      --bg-panel: #ffffff;
+      --bg-dark: #1a1e2b;
+      --bg-dark-soft: #252b3d;
+      --text-main: #1e2330;
+      --text-soft: #4e5568;
+      --text-muted: #7b839a;
+      --text-inverse: #f0f2f8;
+      --accent: #c43a3a;
+      --accent-soft: #fcedec;
+      --accent-gold: #b8862d;
+      --gold-soft: #fdf6e7;
+      --border: #e2e5ed;
+      --border-dark: #3b4257;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, .05), 0 1px 2px rgba(0, 0, 0, .04);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, .07);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+      --max-width: 1360px;
+      --sticky-offset: 88px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    ul, ol { list-style: none; }
+
+    /* ---------- 吸顶区 ---------- */
+    .sticky-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+    }
+    .announce-bar {
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      padding: 7px 0;
+      text-align: center;
+      letter-spacing: .02em;
+    }
+    .announce-bar strong { font-weight: 700; margin-right: 6px; }
+    .site-header {
+      background: var(--bg-dark);
+      color: var(--text-inverse);
+    }
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 60px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand svg { width: 34px; height: 34px; }
+    .brand-text {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      color: #b8c0d4;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: var(--bg-dark-soft);
+      color: #fff;
+      outline: none;
+    }
+    .header-extra {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* ---------- 主容器 ---------- */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      background: linear-gradient(145deg, #1a1e2b 0%, #252b3d 100%);
+      color: var(--text-inverse);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(196, 58, 58, .18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 52px 24px 48px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .hero-content h1 span {
+      color: var(--accent-gold);
+      display: inline-block;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: #c5cde0;
+      max-width: 580px;
+      margin-bottom: 26px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, color .2s;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: #a82f2f;
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 2px;
+    }
+    .btn-ghost {
+      background: transparent;
+      border-color: #4e5568;
+      color: #d0d6e6;
+    }
+    .btn-ghost:hover,
+    .btn-ghost:focus-visible {
+      border-color: var(--accent-gold);
+      color: #fff;
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 2px;
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+    }
+
+    /* ---------- 三栏布局 ---------- */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 28px;
+      padding: 32px 0 48px;
+      align-items: start;
+    }
+
+    /* 左栏频道索引 */
+    .channel-index {
+      position: sticky;
+      top: var(--sticky-offset);
+    }
+    .channel-index h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      padding-left: 8px;
+    }
+    .channel-index ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .channel-index a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 14px;
+      color: var(--text-soft);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid transparent;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .channel-index a:hover,
+    .channel-index a:focus-visible {
+      background: var(--bg-panel);
+      color: var(--text-main);
+      border-left-color: var(--accent);
+      outline: none;
+    }
+
+    /* 中间主内容 */
+    .main-content {
+      min-width: 0;
+    }
+
+    /* 右栏辅助 */
+    .sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ---------- 通用板块样式 ---------- */
+    .section {
+      margin-bottom: 36px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .section-header h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .section-header .sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .section-header .tag-accent {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    /* 概览文字 */
+    .overview-text {
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.8;
+    }
+    .overview-text p { margin-bottom: 12px; }
+    .overview-text p:last-child { margin-bottom: 0; }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: box-shadow .2s, transform .2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #d5d9e2;
+    }
+    .card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: #eef0f6;
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+    .tag-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .tag-gold {
+      background: var(--gold-soft);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .card-hot {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* 紧凑列表 */
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .compact-list li {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .compact-list li:last-child { border-bottom: none; }
+    .compact-list li .item-name {
+      font-weight: 600;
+      flex-shrink: 0;
+      color: var(--text-main);
+    }
+    .compact-list li .item-brief {
+      color: var(--text-muted);
+      font-size: 13px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .compact-list li .item-date {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 12px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-soft);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .category-item:hover,
+    .category-item:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+      outline: none;
+    }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      padding: 28px 30px;
+    }
+    .deep-dive h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 22px 0 10px;
+      color: var(--text-main);
+    }
+    .deep-dive h3:first-of-type { margin-top: 0; }
+    .deep-dive p {
+      font-size: 14.5px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .deep-dive ul {
+      margin: 8px 0 16px 20px;
+      list-style: disc;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .deep-dive ul li { margin-bottom: 4px; }
+
+    /* 体验指南 */
+    .guide-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      counter-reset: step;
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .guide-step {
+      display: flex;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+      counter-increment: step;
+    }
+    .guide-step:last-child { border-bottom: none; }
+    .guide-step::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .guide-step h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .guide-step p {
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.65;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    details {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    summary {
+      padding: 14px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+      transition: background .15s;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: '+';
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--accent);
+      width: 20px;
+      flex-shrink: 0;
+      transition: transform .2s;
+    }
+    details[open] summary::before {
+      content: '−';
+      transform: rotate(0deg);
+    }
+    summary:hover { background: #fafbfd; }
+    summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+    .faq-answer {
+      padding: 0 18px 16px 46px;
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    /* 评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .comment-item {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .comment-item:last-child { border-bottom: none; }
+    .comment-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .comment-nick {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .comment-time {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .comment-text {
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .news-item {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      background: #d5d9e2;
+    }
+    .news-body { padding: 14px 16px 16px; }
+    .news-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .news-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* 相关推荐标签 */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-cloud a {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--text-soft);
+      transition: border-color .2s, color .2s;
+    }
+    .tag-cloud a:hover,
+    .tag-cloud a:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      outline: none;
+    }
+
+    /* 右栏模块 */
+    .side-card {
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .side-card-header {
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .side-card-header .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .side-card-body { padding: 4px 0; }
+    .side-list li {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .side-list li:last-child { border-bottom: none; }
+    .side-list .rank {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 12px;
+      width: 20px;
+      flex-shrink: 0;
+    }
+    .side-list .side-name {
+      font-weight: 600;
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+    .side-list .side-brief {
+      color: var(--text-muted);
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* 榜单 */
+    .rank-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .rank-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .rank-list li:last-child { border-bottom: none; }
+    .rank-list .rank-num {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      background: #eef0f6;
+      color: var(--text-soft);
+      flex-shrink: 0;
+    }
+    .rank-list li:nth-child(1) .rank-num { background: var(--accent); color: #fff; }
+    .rank-list li:nth-child(2) .rank-num { background: var(--accent-gold); color: #fff; }
+    .rank-list li:nth-child(3) .rank-num { background: #b8862d; color: #fff; }
+    .rank-list .rank-title {
+      font-weight: 600;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .rank-list .rank-hot {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* 时间线 */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bg-panel);
+      border: 2px solid var(--accent);
+    }
+    .timeline-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--bg-dark);
+      color: #aab2c8;
+      padding: 40px 0 24px;
+      font-size: 13px;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 32px;
+    }
+    .footer-brand .brand-text {
+      font-size: 17px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .footer-desc {
+      font-size: 13px;
+      color: #8c94a8;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #d0d6e6;
+      margin-bottom: 10px;
+    }
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .footer-col a {
+      font-size: 12.5px;
+      color: #8c94a8;
+      transition: color .15s;
+    }
+    .footer-col a:hover,
+    .footer-col a:focus-visible {
+      color: var(--accent-gold);
+      outline: none;
+    }
+    .footer-bottom {
+      max-width: var(--max-width);
+      margin: 28px auto 0;
+      padding: 18px 24px 0;
+      border-top: 1px solid #2e3447;
+      font-size: 12px;
+      color: #6b7288;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 滚动偏移 */
+    [id] {
+      scroll-margin-top: var(--sticky-offset);
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1100px) {
+      .page-layout {
+        grid-template-columns: 160px 1fr;
+      }
+      .sidebar {
+        grid-column: 1 / -1;
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .category-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 36px 24px 32px;
+      }
+      .hero-visual { justify-content: flex-start; }
+      .hero-visual svg { max-width: 220px; }
+      .hero-content h1 { font-size: 2rem; }
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .channel-index {
+        position: static;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+      .channel-index::-webkit-scrollbar { display: none; }
+      .channel-index h2 { display: none; }
+      .channel-index ul {
+        flex-direction: row;
+        gap: 6px;
+      }
+      .channel-index a {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        white-space: nowrap;
+        font-size: 13px;
+        padding: 6px 10px;
+      }
+      .channel-index a:hover,
+      .channel-index a:focus-visible {
+        border-left-color: transparent;
+        border-bottom-color: var(--accent);
+      }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .news-list { grid-template-columns: 1fr; }
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-inner { gap: 12px; padding: 0 16px; height: 54px; }
+      .brand-text { font-size: 15px; }
+      .brand svg { width: 28px; height: 28px; }
+      .main-nav { gap: 0; }
+      .main-nav a { font-size: 12px; padding: 4px 8px; }
+      .header-extra { display: none; }
+      .container { padding: 0 16px; }
+      .hero-inner { padding: 28px 16px 26px; }
+      .hero-content h1 { font-size: 1.6rem; }
+      .hero-desc { font-size: 14px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 20px; }
+      .footer-bottom { flex-direction: column; }
+      .compact-list li { flex-wrap: wrap; }
+      .compact-list li .item-brief { white-space: normal; width: 100%; }
+      .deep-dive { padding: 20px 18px; }
+      .comment-item { padding: 12px 14px; }
+      .sidebar { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 + 页头 -->
+  <div class="sticky-wrap">
+    <div class="announce-bar">
+      <strong>11 月 8 日更新</strong> 本周新增 7 条赛果复核档案 · 2026 秋季冠军杯判罚明细已上线
+    </div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/#" class="brand" aria-label="每日大赛黑料入口 首页">
+          <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="34" height="34" rx="7" fill="#252b3d"/>
+            <path d="M7 22l4-11 4 7 4-9 4 13" stroke="#e8b34b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="27" cy="9" r="3" fill="#c43a3a"/>
+          </svg>
+          <span class="brand-text">每日大赛黑料入口</span>
+        </a>
+        <nav class="main-nav" aria-label="主题导航">
+          <a href="/#latest">最新动态</a>
+          <a href="/#gallery">精选档案</a>
+          <a href="/#categories">分类入口</a>
+          <a href="/#deep-dive">深度解析</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#comments">社区评论</a>
+          <a href="/#news">相关资讯</a>
+        </nav>
+        <span class="header-extra">档案索引 · 持续更新</span>
+      </div>
+    </header>
+  </div>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>每日大赛黑料入口</h1>
+        <p class="hero-desc">
+          汇聚电竞赛事中的争议判罚记录、选手违规公示、赛果复核档案与社区讨论。覆盖英雄联盟、DOTA2、CS2、王者荣耀等主流项目，按赛事周期整理可追溯的争议节点。
+        </p>
+        <div class="hero-actions">
+          <a href="/#latest" class="btn btn-primary">查看今日更新</a>
+          <a href="/#categories" class="btn btn-ghost">按赛事分类</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="30" width="300" height="200" rx="12" fill="#252b3d" stroke="#3b4257" stroke-width="1.5"/>
+          <rect x="36" y="46" width="120" height="8" rx="4" fill="#4e5568"/>
+          <rect x="36" y="64" width="200" height="6" rx="3" fill="#3b4257"/>
+          <rect x="36" y="78" width="160" height="6" rx="3" fill="#3b4257"/>
+          <rect x="36" y="100" width="90" height="80" rx="8" fill="#1a1e2b" stroke="#c43a3a" stroke-width="1.5"/>
+          <path d="M60 140l12-24 10 16 14-32 12 40" stroke="#e8b34b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="140" y="100" width="160" height="36" rx="6" fill="#1a1e2b" stroke="#3b4257"/>
+          <rect x="152" y="112" width="80" height="6" rx="3" fill="#4e5568"/>
+          <rect x="140" y="144" width="160" height="36" rx="6" fill="#1a1e2b" stroke="#3b4257"/>
+          <rect x="152" y="156" width="110" height="6" rx="3" fill="#4e5568"/>
+          <circle cx="280" cy="46" r="10" fill="#c43a3a" opacity="0.8"/>
+          <rect x="36" y="196" width="60" height="18" rx="6" fill="#c43a3a" opacity="0.9"/>
+          <rect x="106" y="196" width="60" height="18" rx="6" fill="#3b4257"/>
+          <rect x="176" y="196" width="60" height="18" rx="6" fill="#3b4257"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主内容区：三栏布局 -->
+  <div class="container">
+    <div class="page-layout">
+
+      <!-- 左栏：频道索引 -->
+      <aside class="channel-index" aria-label="频道索引">
+        <h2>频道</h2>
+        <ul>
+          <li><a href="/#latest">最新动态</a></li>
+          <li><a href="/#gallery">精选档案</a></li>
+          <li><a href="/#categories">分类入口</a></li>
+          <li><a href="/#deep-dive">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">社区评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#ranking">争议榜</a></li>
+          <li><a href="/#timeline">时间线</a></li>
+        </ul>
+      </aside>
+
+      <!-- 中间主内容 -->
+      <main class="main-content">
+
+        <!-- 1. 主题领域概览 -->
+        <section class="section" id="overview">
+          <div class="section-header">
+            <h2>赛事争议档案领域概览</h2>
+            <span class="sub">2026 秋季赛季中更新</span>
+          </div>
+          <div class="overview-text">
+            <p>电竞赛事中的争议档案大致分为四类：判罚争议（裁判依据规则做出的现场决定引发讨论）、设备与网络异常（暂停、重开、回溯的合理性）、选手行为记录（违规接触、消极比赛、不当言论的公示）以及赛果复核（赛后申诉与改判）。每类档案的公开程度不同，联赛官方通常只披露结论，而社区讨论往往补充现场细节与规则解读。</p>
+            <p>以 2026 年秋季冠军杯为例，10 月以来已产生 3 起赛果复核申请，其中 1 起涉及 CS2 项目的小组赛重赛判定，2 起为王者荣耀项目的暂停时长争议。英雄联盟职业联赛在 11 月 3 日公示了最新一批选手违规记录，涉及不当言论与排位挂机两类行为。DOTA2 国际邀请赛的赛后申诉窗口在 11 月 6 日关闭，共计收到 4 份复核请求。</p>
+            <p>关注这些档案的读者通常需要区分“已确认违规”“判罚存疑”和“社区推测”三个层级。已确认违规以官方公告为准，判罚存疑聚焦规则适用性的讨论，社区推测则多为观众基于录像的二次分析。三者混在一起容易产生误读，因此按来源标注可信层级是阅读争议档案的基本前提。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="gallery">
+          <div class="section-header">
+            <h2>精选争议档案</h2>
+            <span class="sub">8 条近期可查阅记录</span>
+            <span class="tag-accent">官方公示</span>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/lol-fake-0811/400/300" alt="英雄联盟职业联赛选手违规记录公示截图" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">LPL 11 月选手违规公示</h3>
+                <p class="card-desc">2026 年 11 月 3 日公示 3 名选手处罚：2 起因排位挂机，1 起为直播不当言论。附禁赛时长与罚款金额。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">官方公告</span>
+                  <span class="tag">LPL</span>
+                  <span class="tag">选手行为</span>
+                  <span class="card-hot">11-03</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/cs2-rematch-1102/400/300" alt="CS2 秋季冠军杯小组赛重赛判定现场画面" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">CS2 冠军杯小组赛重赛判定</h3>
+                <p class="card-desc">10 月 28 日 A 组第三轮因服务器丢包导致经济局异常，赛事方裁定重赛第三张地图，社区对暂停时机争议较大。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">赛果复核</span>
+                  <span class="tag">CS2</span>
+                  <span class="tag">重赛</span>
+                  <span class="card-hot">10-28</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/wzry-pause-1105/400/300" alt="王者荣耀职业联赛季后赛暂停争议计时记录" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">KPL 季后赛暂停超时争议</h3>
+                <p class="card-desc">11 月 5 日败者组半决赛第三局暂停 23 分钟，超过规则规定的 15 分钟上限，对手方提出书面异议。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">判罚争议</span>
+                  <span class="tag">KPL</span>
+                  <span class="tag">暂停</span>
+                  <span class="card-hot">11-05</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/dota2-appeal-1106/400/300" alt="DOTA2 国际邀请赛申诉窗口关闭公告" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">TI 赛后申诉 4 份复核请求</h3>
+                <p class="card-desc">11 月 6 日申诉窗口关闭，4 份请求中 2 份涉及 BP 阶段计时器故障，另 2 份为观战延迟导致的信号问题。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">赛果复核</span>
+                  <span class="tag">DOTA2</span>
+                  <span class="tag">TI</span>
+                  <span class="card-hot">11-06</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/lol-referee-1029/400/300" alt="英雄联盟裁判现场执裁与教练沟通记录" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">LPL 裁判耳机沟通录音披露</h3>
+                <p class="card-desc">10 月 29 日联盟公开一段 40 秒裁判与教练的沟通录音，用于解释一次暂停判罚依据，社区对剪辑完整性提出疑问。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">判罚争议</span>
+                  <span class="tag">LPL</span>
+                  <span class="tag">录音披露</span>
+                  <span class="card-hot">10-29</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/wzry-equip-1101/400/300" alt="王者荣耀职业选手比赛设备异常检查记录" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">KPL 设备异常回溯判定</h3>
+                <p class="card-desc">11 月 1 日常规赛一台手机触控异常触发回溯，裁判依据规则第 7.3 条裁定维持原 BP，未重新开局。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">设备异常</span>
+                  <span class="tag">KPL</span>
+                  <span class="tag">回溯</span>
+                  <span class="card-hot">11-01</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/cs2-coach-1104/400/300" alt="CS2 教练视角违规观赛判定公示" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">CS2 教练观赛视角违规</h3>
+                <p class="card-desc">11 月 4 日赛事方公示一名教练在暂停期间使用选手视角观战，判定违反观赛规范，处以警告与罚款。</p>
+                <div class="card-meta">
+                  <span class="tag tag-accent">选手行为</span>
+                  <span class="tag">CS2</span>
+                  <span class="tag">教练违规</span>
+                  <span class="card-hot">11-04</span>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-img" src="https://picsum.photos/seed/lol-fans-1107/400/300" alt="英雄联盟社区对争议判罚的讨论帖截图" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <h3 class="card-title">LPL 社区判罚投票结果</h3>
+                <p class="card-desc">11 月 7 日社区发起关于一次暂停判罚的投票，2.3 万人参与，58% 认为判罚合理，32% 认为应重赛。</p>
+                <div class="card-meta">
+                  <span class="tag tag-gold">社区讨论</span>
+                  <span class="tag">LPL</span>
+                  <span class="tag">投票</span>
+                  <span class="card-hot">11-07</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 / 动态 -->
+        <section class="section" id="latest">
+          <div class="section-header">
+            <h2>最新更新与动态</h2>
+            <span class="sub">11 月 8 日前后档案变化</span>
+          </div>
+          <ul class="compact-list">
+            <li><span class="item-name">LPL 违规公示补充说明</span><span class="item-brief">联盟追加一份关于排位挂机判罚的规则解释，明确 3 场禁赛的适用场景</span><span class="item-date">今天 09:15</span></li>
+            <li><span class="item-name">CS2 冠军杯重赛录像</span><span class="item-brief">官方上传第三张地图完整录像与裁判语音，累计播放 4.2 万次</span><span class="item-date">今天 08:40</span></li>
+            <li><span class="item-name">KPL 暂停争议书面回复</span><span class="item-brief">赛事方回复对手俱乐部异议，维持原判但补充暂停计时细则</span><span class="item-date">昨天 21:10</span></li>
+            <li><span class="item-name">TI 申诉结果公示</span><span class="item-brief">4 份复核请求中 1 份被受理，其余 3 份因证据不足驳回</span><span class="item-date">昨天 18:25</span></li>
+            <li><span class="item-name">LPL 裁判录音完整版</span><span class="item-brief">联盟应社区要求发布未剪辑版本，时长 3 分 12 秒</span><span class="item-date">11 月 7 日</span></li>
+            <li><span class="item-name">王者荣耀设备异常报告</span><span class="item-brief">赛事技术组发布触控异常检测报告，附设备型号与日志</span><span class="item-date">11 月 6 日</span></li>
+            <li><span class="item-name">CS2 教练违规申诉</span><span class="item-brief">涉事教练提出申诉，联盟安排 11 月 10 日听证</span><span class="item-date">11 月 5 日</span></li>
+            <li><span class="item-name">LPL 社区投票关闭</span><span class="item-brief">2.3 万人参与的判罚投票结果已归档至社区讨论区</span><span class="item-date">11 月 4 日</span></li>
+            <li><span class="item-name">KPL 规则第 7.3 条更新</span><span class="item-brief">设备异常回溯条款新增“维持原 BP”的默认处理方式</span><span class="item-date">11 月 3 日</span></li>
+            <li><span class="item-name">DOTA2 裁判报告归档</span><span class="item-brief">小组赛阶段 12 份裁判报告已上传至赛事档案库</span><span class="item-date">11 月 2 日</span></li>
+          </ul>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="categories">
+          <div class="section-header">
+            <h2>按赛事与类型分类</h2>
+            <span class="sub">8 个可检索入口</span>
+          </div>
+          <div class="category-grid">
+            <a href="/#gallery" class="category-item">英雄联盟 LPL</a>
+            <a href="/#gallery" class="category-item">DOTA2 TI</a>
+            <a href="/#gallery" class="category-item">CS2 冠军杯</a>
+            <a href="/#gallery" class="category-item">王者荣耀 KPL</a>
+            <a href="/#deep-dive" class="category-item">判罚争议</a>
+            <a href="/#deep-dive" class="category-item">赛果复核</a>
+            <a href="/#deep-dive" class="category-item">选手违规</a>
+            <a href="/#deep-dive" class="category-item">设备与网络</a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析正文 -->
+        <section class="section" id="deep-dive">
+          <div class="section-header">
+            <h2>判罚争议与赛果复核：如何区分与判断</h2>
+          </div>
+          <div class="deep-dive">
+            <h3>判罚争议的核心是规则适用性</h3>
+            <p>判罚争议通常发生在比赛进行中，裁判依据现场情况做出即时决定。争议点往往不是“事实是什么”，而是“规则是否适用”。例如 KPL 11 月 5 日的暂停超时争议，事实层面清晰：暂停 23 分钟，超过 15 分钟上限。但规则同时规定“裁判有权因不可抗力延长暂停”，争议焦点便落在“设备故障是否属于不可抗力”以及“裁判是否提前告知对手方”。</p>
+            <p>判断这类档案的关键，是找到规则原文中对应的条款编号，再比对裁判的书面解释。多数赛事方会在争议发生后 48 小时内发布说明，但完整规则手册往往滞后更新。社区整理版规则手册是重要补充，但需要核对版本号和生效日期。</p>
+            <h3>赛果复核的时间窗口与证据门槛</h3>
+            <p>赛果复核与判罚争议不同，它发生在比赛结束后，由战队或选手主动提出。复核请求有严格的时间窗口，通常为赛后 2 小时内提交，24 小时内补充证据。TI 11 月 6 日关闭的申诉窗口共收到 4 份请求，其中 1 份被受理，原因是提供了 BP 阶段计时器故障的完整录屏。</p>
+            <ul>
+              <li>受理条件一：提交方需证明异常影响了比赛结果，而非仅证明异常存在。</li>
+              <li>受理条件二：证据需为官方录像或赛事方日志，社区视频仅作参考。</li>
+              <li>受理条件三：复核不推翻已公示的裁判现场决定，仅针对赛果本身。</li>
+            </ul>
+            <h3>选手违规记录的可信层级</h3>
+            <p>选手违规记录的来源差异很大。官方公告是最可靠的一层，通常包含违规类型、处罚依据和禁赛时长。第二层是战队公告，可能披露更多细节但存在立场。第三层是社区爆料，需要交叉验证。LPL 11 月 3 日的公示属于第一层，但社区随后讨论的“是否还有未公示的违规”则属于第三层，两者不应混为一谈。</p>
+            <p>阅读违规记录时，优先查看处罚依据的条款编号。例如排位挂机通常引用“消极游戏”条款，不当言论引用“社区行为规范”条款。条款编号能帮助判断处罚力度是否与行为匹配，而非单纯依靠情绪判断。</p>
+            <h3>设备与网络异常的判断路径</h3>
+            <p>设备异常类档案往往技术性强，普通观众难以直接判断。一个实用的方法是关注三个节点：异常发生时间、暂停触发时间、回溯或重开决定时间。三者之间的间隔越短，说明赛事方的应急流程越清晰。CS2 10 月 28 日的重赛判定中，从丢包发生到裁判裁定重赛间隔 18 分钟，属于中等水平。</p>
+            <p>另一个节点是技术报告。多数赛事方会在赛后 72 小时内发布设备日志摘要，包含网络丢包率、设备温度、帧率波动等数据。这些数据比社区推测更有参考价值，但需要一定的技术背景才能读懂。</p>
+          </div>
+        </section>
+
+        <!-- 6. 体验指南 -->
+        <section class="section" id="guide">
+          <div class="section-header">
+            <h2>阅读争议档案的消费路径</h2>
+            <span class="sub">从结论到细节的查看顺序</span>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <div>
+                <h4>先看官方结论，不看社区标题</h4>
+                <p>官方公告通常措辞克制，但信息准确。社区标题为了吸引点击容易夸大，先读官方结论能避免先入为主。例如 KPL 暂停争议的官方回复明确写“维持原判”，社区标题则可能写“裁判黑幕”。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div>
+                <h4>找到规则条款编号</h4>
+                <p>任何判罚争议都有对应的规则条款。找到条款编号后，直接查看条款原文，再比对裁判解释。这一步能过滤掉大部分情绪化讨论，把注意力集中在规则适用性上。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div>
+                <h4>比对同类事件的历史处理</h4>
+                <p>同一赛事中类似情况的处理方式是否一致，是判断判罚是否合理的重要依据。例如设备异常回溯，KPL 在 10 月和 11 月各有一次，处理方式是否相同，比单次判罚本身更有参考价值。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div>
+                <h4>区分事实陈述与观点表达</h4>
+                <p>档案中的“事实”部分（时间、比分、暂停时长）可以直接采信，而“观点”部分（裁判是否偏袒、选手是否故意）需要保持距离。阅读评论时尤其注意，观点可以多样，事实只有一个。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div>
+                <h4>关注后续更新而非即时情绪</h4>
+                <p>争议档案的价值在于后续补充。官方追加说明、战队申诉、听证会安排都会改变事件全貌。把关注点放在更新节点上，比在事件当天参与情绪讨论更有信息收益。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <div class="section-header">
+            <h2>常见问题</h2>
+            <span class="sub">6 个高频检索问题</span>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>电竞赛事判罚争议一般多久出结果？</summary>
+              <div class="faq-answer">多数联赛规定争议发生后 24 小时内发布初步说明，48 小时内发布完整解释。涉及赛果复核的，受理后 3 个工作日内给出结论。超过此时限未回应的，通常意味着赛事方维持原判。</div>
+            </details>
+            <details>
+              <summary>赛果复核和判罚争议有什么区别？</summary>
+              <div class="faq-answer">判罚争议针对比赛进行中的裁判决定，复核对象是决定本身是否合规。赛果复核针对比赛结束后的最终比分，由战队主动申请，需要提交新证据。前者是“裁判做得对不对”，后者是“比分要不要改”。</div>
+            </details>
+            <details>
+              <summary>选手违规记录中的“禁赛 3 场”怎么执行？</summary>
+              <div class="faq-answer">禁赛场次通常按该选手所在队伍接下来的正式比赛计算，不含季前赛和表演赛。如果队伍在禁赛期间被淘汰，剩余禁赛场次顺延至下一赛季或下一参加的同级别赛事。具体执行细则以赛事方处罚公告为准。</div>
+            </details>
+            <details>
+              <summary>第一次看争议档案，从哪类开始比较合适？</summary>
+              <div class="faq-answer">建议从官方公告类档案开始，例如 LPL 11 月 3 日的违规公示。这类档案事实清楚、依据明确，容易建立判断标准。熟悉后再看判罚争议类，最后看涉及技术细节的设备异常类。</div>
+            </details>
+            <details>
+              <summary>设备异常导致的回溯，算不算破坏比赛公平？</summary>
+              <div class="faq-answer">关键看异常是否被及时识别以及回溯是否对双方同等适用。规则通常要求裁判在确认异常后立即暂停，并告知双方可能的处理方式。如果回溯只对一方有利且未提前告知，公平性就会被质疑。</div>
+            </details>
+            <details>
+              <summary>社区讨论里的爆料可信吗？</summary>
+              <div class="faq-answer">需区分来源。附有官方录像链接或赛事方日志的爆料可信度较高；仅有文字描述或匿名截图的，建议等待官方回应。社区讨论的价值更多在于提供观察角度，而非作为事实依据。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="comments">
+          <div class="section-header">
+            <h2>社区评论</h2>
+            <span class="sub">16 条近期讨论</span>
+          </div>
+          <ul class="comment-list">
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">峡谷老猫</span><span class="comment-time">今天 10:22</span></div>
+              <p class="comment-text">LPL 那三张罚单里排位挂机占了两张，感觉联盟这赛季对消极游戏抓得比以前紧。禁赛 3 场对季末排名影响不小。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">B点下包</span><span class="comment-time">今天 09:48</span></div>
+              <p class="comment-text">CS2 重赛那个第三张地图，经济局丢包确实离谱，但重赛决定出来得算快了。裁判语音里能听出他们也在确认规则。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">暂停键坏了</span><span class="comment-time">今天 08:30</span></div>
+              <p class="comment-text">KPL 暂停 23 分钟确实太久了，规则写 15 分钟上限，就算设备故障也该有个更明确的处理流程。对面提异议完全能理解。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">TI 观赛员</span><span class="comment-time">昨天 22:15</span></div>
+              <p class="comment-text">TI 四份申诉只受理一份，说明赛事方对证据要求确实高。BP 计时器故障那个有录屏，其余三份估计只是口头描述。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">规则书读者</span><span class="comment-time">昨天 20:40</span></div>
+              <p class="comment-text">裁判录音完整版放出来之后，讨论反而更理性了。剪辑版确实容易让人往某个方向想，未剪辑版能听到前后语境。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">触控失灵</span><span class="comment-time">昨天 19:05</span></div>
+              <p class="comment-text">王者荣耀设备异常报告挺详细的，连设备型号和日志都给了。这种技术类公告比单纯说“设备故障”有说服力多了。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">教练视角</span><span class="comment-time">昨天 16:30</span></div>
+              <p class="comment-text">CS2 教练用选手视角观赛这个，规范里写得很清楚，但暂停期间确实容易忽略。警告加罚款算轻的了。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">投票路人</span><span class="comment-time">11 月 7 日 21:10</span></div>
+              <p class="comment-text">那个 2.3 万人投票我参与了，58% 认为判罚合理，跟我的判断差不多。不过投票这种东西样本还是有偏差，看个大概就行。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">录像分析师</span><span class="comment-time">11 月 7 日 17:45</span></div>
+              <p class="comment-text">重赛录像里裁判处理流程其实挺规范的，先确认丢包，再暂停，再通知双方，最后才裁定。18 分钟不算慢。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">中立观众甲</span><span class="comment-time">11 月 6 日 23:20</span></div>
+              <p class="comment-text">我觉得判罚争议的讨论很容易变成立场之争。其实把规则原文贴出来，大部分问题就清楚了。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">BP 计时器</span><span class="comment-time">11 月 6 日 19:00</span></div>
+              <p class="comment-text">TI 那个 BP 计时器故障，好在选手有录屏。这类证据比事后回忆有用多了，赛事方受理也合理。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">回溯条款</span><span class="comment-time">11 月 5 日 22:35</span></div>
+              <p class="comment-text">KPL 规则第 7.3 条更新后，设备异常默认维持原 BP，这个改动其实减少了裁判的自由裁量空间，是好事。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">深夜看比赛</span><span class="comment-time">11 月 5 日 18:50</span></div>
+              <p class="comment-text">暂停超时那次，其实最该问的是暂停期间选手能不能交流。规则里没写清楚，这才是争议根源吧。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">DOTA 老玩家</span><span class="comment-time">11 月 4 日 21:15</span></div>
+              <p class="comment-text">TI 赛后裁判报告归档了 12 份，比去年多。说明赛事方在透明度上确实有进步，虽然申诉受理率还是低。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">罚单收集者</span><span class="comment-time">11 月 3 日 20:40</span></div>
+              <p class="comment-text">LPL 不当言论那张罚单，条款引用的是社区行为规范第 4 条。对比之前的案例，处罚力度基本一致。</p>
+            </li>
+            <li class="comment-item">
+              <div class="comment-head"><span class="comment-nick">普通观众乙</span><span class="comment-time">11 月 2 日 15:30</span></div>
+              <p class="comment-text">看这些档案最大的收获是学会了先找规则原文，而不是先看评论区。情绪化的东西看多了容易上头。</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <div class="section-header">
+            <h2>相关资讯</h2>
+            <span class="sub">6 条近期动态</span>
+          </div>
+          <div class="news-list">
+            <article class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/lpl-rules-1107/600/400" alt="LPL 规则手册更新封面" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <div class="news-date">2026-11-07</div>
+                <h3 class="news-title">LPL 规则手册 11 月版更新暂停条款</h3>
+                <p class="news-summary">新增暂停时长分级处理流程，15 分钟以上需裁判长签字确认，并强制向双方教练同步计时。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/cs2-hearing-1106/600/400" alt="CS2 教练违规听证会通知文件" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <div class="news-date">2026-11-06</div>
+                <h3 class="news-title">CS2 教练违规听证会定档 11 月 10 日</h3>
+                <p class="news-summary">涉事教练提交 8 页申诉材料，主张暂停期间未获取比赛信息。联盟安排三方听证。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/kpl-tech-1105/600/400" alt="KPL 赛事技术报告封面" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <div class="news-date">2026-11-05</div>
+                <h3 class="news-title">KPL 发布设备异常检测技术报告</h3>
+                <p class="news-summary">报告包含触控采样率、设备温度、系统日志三类数据，为回溯判定提供技术依据。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/ti-appeal-1104/600/400" alt="DOTA2 国际邀请赛申诉结果公告" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <div class="news-date">2026-11-04</div>
+                <h3 class="news-title">TI 申诉结果：1 份受理 3 份驳回</h3>
+                <p class="news-summary">受理的 BP 计时器故障案例将进入复核程序，其余三份因证据不足未予受理。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/lol-voice-1103/600/400" alt="LPL 裁判录音完整版发布说明" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <div class="news-date">2026-11-03</div>
+                <h3 class="news-title">LPL 应社区要求发布未剪辑裁判录音</h3>
+                <p class="news-summary">录音时长 3 分 12 秒，涵盖暂停前沟通、裁定依据与双方确认环节。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img class="news-img" src="https://picsum.photos/seed/wzry-rule-1102/600/400" alt="王者荣耀赛事规则修订对照页" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <div class="news-date">2026-11-02</div>
+                <h3 class="news-title">王者荣耀赛事规则 7.3 条修订生效</h3>
+                <p class="news-summary">设备异常回溯默认维持原 BP，减少裁判自由裁量，同步更新裁判培训手册。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="related">
+          <div class="section-header">
+            <h2>延伸阅读方向</h2>
+            <span class="sub">8 个具体检索词</span>
+          </div>
+          <div class="tag-cloud">
+            <a href="/#deep-dive">暂停超时判罚标准</a>
+            <a href="/#deep-dive">重赛与回溯的区别</a>
+            <a href="/#gallery">排位挂机处罚案例</a>
+            <a href="/#gallery">BP 计时器故障复核</a>
+            <a href="/#deep-dive">教练观赛规范</a>
+            <a href="/#deep-dive">设备日志解读方法</a>
+            <a href="/#guide">判罚争议时间线整理</a>
+            <a href="/#faq">申诉证据提交要求</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：争议榜 + 时间线 -->
+        <section class="section" id="ranking">
+          <div class="section-header">
+            <h2>本周争议榜</h2>
+            <span class="sub">按社区讨论量排序</span>
+          </div>
+          <ul class="rank-list">
+            <li><span class="rank-num">1</span><span class="rank-title">KPL 季后赛暂停 23 分钟争议</span><span class="rank-hot">2.3 万讨论</span></li>
+            <li><span class="rank-num">2</span><span class="rank-title">CS2 冠军杯小组赛重赛判定</span><span class="rank-hot">1.8 万讨论</span></li>
+            <li><span class="rank-num">3</span><span class="rank-title">LPL 选手排位挂机禁赛公示</span><span class="rank-hot">1.5 万讨论</span></li>
+            <li><span class="rank-num">4</span><span class="rank-title">TI 申诉窗口 4 份复核请求</span><span class="rank-hot">1.2 万讨论</span></li>
+            <li><span class="rank-num">5</span><span class="rank-title">CS2 教练暂停期间观赛违规</span><span class="rank-hot">9,800 讨论</span></li>
+            <li><span class="rank-num">6</span><span class="rank-title">LPL 裁判录音剪辑完整性争议</span><span class="rank-hot">8,400 讨论</span></li>
+            <li><span class="rank-num">7</span><span class="rank-title">KPL 设备异常回溯维持原 BP</span><span class="rank-hot">7,100 讨论</span></li>
+            <li><span class="rank-num">8</span><span class="rank-title">王者荣耀规则 7.3 条修订讨论</span><span class="rank-hot">5,600 讨论</span></li>
+          </ul>
+        </section>
+
+        <section class="section" id="timeline">
+          <div class="section-header">
+            <h2>11 月争议档案时间线</h2>
+            <span class="sub">按日期排列</span>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-08</div>
+              <div class="timeline-title">LPL 违规公示补充规则解释</div>
+              <div class="timeline-desc">联盟追加排位挂机判罚的条款适用说明。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-07</div>
+              <div class="timeline-title">LPL 社区判罚投票关闭</div>
+              <div class="timeline-desc">2.3 万人参与，58% 认为暂停判罚合理。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-06</div>
+              <div class="timeline-title">TI 申诉窗口关闭</div>
+              <div class="timeline-desc">4 份复核请求，1 份受理。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-05</div>
+              <div class="timeline-title">KPL 暂停超时争议</div>
+              <div class="timeline-desc">败者组半决赛暂停 23 分钟，对手方书面异议。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-04</div>
+              <div class="timeline-title">CS2 教练观赛违规公示</div>
+              <div class="timeline-desc">暂停期间使用选手视角，处以警告与罚款。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-03</div>
+              <div class="timeline-title">LPL 选手违规公示</div>
+              <div class="timeline-desc">3 名选手处罚：2 起挂机，1 起不当言论。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-11-01</div>
+              <div class="timeline-title">KPL 设备异常回溯判定</div>
+              <div class="timeline-desc">触控异常触发回溯，维持原 BP。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2026-10-28</div>
+              <div class="timeline-title">CS2 小组赛重赛判定</div>
+              <div class="timeline-desc">服务器丢包导致经济局异常，重赛第三张地图。</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 右栏辅助 -->
+      <aside class="sidebar" aria-label="辅助栏">
+        <div class="side-card">
+          <div class="side-card-header"><span class="dot"></span>今日更新速览</div>
+          <div class="side-card-body">
+            <ul class="side-list">
+              <li><span class="side-name">LPL 补充说明</span><span class="side-brief">排位挂机条款解释</span></li>
+              <li><span class="side-name">CS2 重赛录像</span><span class="side-brief">第三张地图完整版</span></li>
+              <li><span class="side-name">KPL 书面回复</span><span class="side-brief">维持原判，补充细则</span></li>
+              <li><span class="side-name">TI 申诉结果</span><span class="side-brief">1 受理 3 驳回</span></li>
+              <li><span class="side-name">LPL 录音完整版</span><span class="side-brief">3 分 12 秒未剪辑</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="side-card">
+          <div class="side-card-header"><span class="dot"></span>热门档案</div>
+          <div class="side-card-body">
+            <ul class="side-list">
+              <li><span class="rank">01</span><span class="side-name">KPL 暂停超时</span><span class="side-brief">23 分钟争议</span></li>
+              <li><span class="rank">02</span><span class="side-name">CS2 重赛判定</span><span class="side-brief">丢包导致重赛</span></li>
+              <li><span class="rank">03</span><span class="side-name">LPL 违规公示</span><span class="side-brief">3 名选手处罚</span></li>
+              <li><span class="rank">04</span><span class="side-name">TI 申诉窗口</span><span class="side-brief">4 份复核请求</span></li>
+              <li><span class="rank">05</span><span class="side-name">CS2 教练违规</span><span class="side-brief">观赛视角处罚</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="side-card">
+          <div class="side-card-header"><span class="dot"></span>档案可信层级</div>
+          <div class="side-card-body" style="padding:14px 16px;font-size:13px;color:var(--text-soft);line-height:1.7;">
+            <p style="margin-bottom:8px;"><strong style="color:var(--accent);">官方公告</strong>：联赛或赛事方发布的处罚、复核、规则解释。</p>
+            <p style="margin-bottom:8px;"><strong style="color:var(--accent-gold);">战队公告</strong>：俱乐部发布的申诉声明或情况说明。</p>
+            <p><strong style="color:var(--text-muted);">社区讨论</strong>：观众基于录像的分析与推测，需交叉验证。</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text" style="font-size:17px;font-weight:700;color:#fff;margin-bottom:8px;display:block;">每日大赛黑料入口</span>
+        <p class="footer-desc">聚焦电竞赛事争议判罚、选手违规记录、赛果复核与设备异常档案，按时间线和可信层级整理可查阅的争议节点。</p>
+      </div>
+      <div class="footer-col">
+        <h4>频道</h4>
+        <ul>
+          <li><a href="/#latest">最新动态</a></li>
+          <li><a href="/#gallery">精选档案</a></li>
+          <li><a href="/#categories">分类入口</a></li>
+          <li><a href="/#deep-dive">深度解析</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>辅助</h4>
+        <ul>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">社区评论</a></li>
+          <li><a href="/#ranking">争议榜</a></li>
+          <li><a href="/#timeline">时间线</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>延伸</h4>
+        <ul>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#overview">领域概览</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 每日大赛黑料入口 · 内容聚合示例</span>
+      <span>部分内容为示例数据，仅用于展示页面结构</span>
+    </div>
+  </footer>
+
+</body>
+  </html>
